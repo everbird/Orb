@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource> {
+    NSArray* _programs;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *table;
+
+- (void)loadObjectsFromDataStore;
 
 @end

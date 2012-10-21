@@ -8,11 +8,45 @@
 
 #import "AppDelegate.h"
 
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://seer.everbird.net"];
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    NSString* databaseName = @"Seer.sqlite";
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    
+    RKManagedObjectMapping* channelMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Channel" inManagedObjectStore:objectManager.objectStore];
+    channelMapping.primaryKeyAttribute = @"id";
+    [channelMapping mapKeyPath:@"id" toAttribute:@"id"];
+    [channelMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKManagedObjectMapping* programMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Program" inManagedObjectStore:objectManager.objectStore];
+    programMapping.primaryKeyAttribute = @"id";
+    [programMapping mapKeyPathsToAttributes:@"id", @"id",
+     @"name", @"name",
+     @"length", @"length",
+     @"datenum", @"datenum",
+     @"channel_id", @"channelId",
+     @"start_dt", @"startDate",
+     @"update_dt", @"updateDate",
+     nil];
+    [programMapping mapRelationship:@"channel" withMapping:channelMapping];
+    
+    [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd'T'HH:mm:ss'Z'" inTimeZone:nil];
+    
+    [objectManager.mappingProvider registerMapping:channelMapping withRootKeyPath:@"objects"];
+    [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
+    
+    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:@"/api/channel/:id"];
+    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:@"/api/channel"];
+    
+    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:@"/api/program"];
     return YES;
 }
 							
