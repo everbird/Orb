@@ -6,18 +6,20 @@
 //  Copyright (c) 2012 everbird. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ProgramListTableViewController.h"
 #import <RestKit/CoreData.h>
 #import <JSONKit/JSONKit.h>
 
 #import "Program.h"
 
-@interface ViewController ()
+@interface ProgramListTableViewController ()
 
 @end
 
-@implementation ViewController
-@synthesize table = _table;
+@implementation ProgramListTableViewController
+
+
+@synthesize tableView = _tableView;
 
 - (void)viewDidLoad
 {
@@ -48,7 +50,7 @@
 
 - (void)viewDidUnload
 {
-    [self setTable:nil];
+    [self setView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -76,9 +78,10 @@
 - (void)loadObjectsFromDataStore
 {
     NSFetchRequest *request = [Program fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:NO];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     _programs = [Program objectsWithFetchRequest:request];
+    NSLog(@">>>%@", _programs);
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -89,7 +92,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Loaded statuses: %@", objects);
     [self loadObjectsFromDataStore];
-    [_table reloadData];
+    [_tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -109,6 +112,7 @@
     CGSize size = [[[_programs objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
     return size.height + 10;
 }
+
 
 #pragma mark UITableViewDataSource methods
 
@@ -140,7 +144,8 @@
     }
     Program* program = [_programs objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
     NSString* dateString = [formatter stringFromDate:program.startDate];
     NSString* show = [NSString stringWithFormat:@"[%@]%@", dateString, program.name];
     cell.textLabel.text = show;

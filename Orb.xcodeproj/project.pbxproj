@@ -15,7 +15,6 @@
 		62E6CFFB1632E4B100106FBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6CFFA1632E4B100106FBE /* main.m */; };
 		62E6CFFF1632E4B100106FBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6CFFE1632E4B100106FBE /* AppDelegate.m */; };
 		62E6D0021632E4B100106FBE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */; };
-		62E6D0051632E4B100106FBE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D0041632E4B100106FBE /* ViewController.m */; };
 		62E6D01D1632E94400106FBE /* dingdang.caf in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D01C1632E94400106FBE /* dingdang.caf */; };
 		62E6D0491632F99F00106FBE /* Seer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */; };
 		62E6D04C1633045000106FBE /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D04B1633045000106FBE /* Program.m */; };
@@ -26,6 +25,7 @@
 		62E6D0591633D9E000106FBE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0531633D9E000106FBE /* Default@2x.png */; };
 		62E6D05A1633D9E000106FBE /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0541633D9E000106FBE /* listbg.png */; };
 		62E6D05B1633D9E000106FBE /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0551633D9E000106FBE /* listbg@2x.png */; };
+		62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,7 @@
 		62E6CFFD1632E4B100106FBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62E6CFFE1632E4B100106FBE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		62E6D0011632E4B100106FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		62E6D0031632E4B100106FBE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		62E6D0041632E4B100106FBE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramListTableViewController.h; sourceTree = "<group>"; };
 		62E6D01C1632E94400106FBE /* dingdang.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.caf; sourceTree = "<group>"; };
 		62E6D0481632F99F00106FBE /* Seer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seer.xcdatamodel; sourceTree = "<group>"; };
 		62E6D04A1633045000106FBE /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		62E6D0531633D9E000106FBE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		62E6D0541633D9E000106FBE /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		62E6D0551633D9E000106FBE /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
+		62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramListTableViewController.m; sourceTree = "<group>"; };
 		8007C75E20B64CC3BCEC0AC0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -110,8 +110,8 @@
 				62E6CFFD1632E4B100106FBE /* AppDelegate.h */,
 				62E6CFFE1632E4B100106FBE /* AppDelegate.m */,
 				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
-				62E6D0031632E4B100106FBE /* ViewController.h */,
-				62E6D0041632E4B100106FBE /* ViewController.m */,
+				62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */,
+				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
 			);
 			path = Orb;
@@ -244,10 +244,10 @@
 			files = (
 				62E6CFFB1632E4B100106FBE /* main.m in Sources */,
 				62E6CFFF1632E4B100106FBE /* AppDelegate.m in Sources */,
-				62E6D0051632E4B100106FBE /* ViewController.m in Sources */,
 				62E6D0491632F99F00106FBE /* Seer.xcdatamodeld in Sources */,
 				62E6D04C1633045000106FBE /* Program.m in Sources */,
 				62E6D04F1633045000106FBE /* Channel.m in Sources */,
+				62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
