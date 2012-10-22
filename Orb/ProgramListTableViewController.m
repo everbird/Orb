@@ -11,6 +11,7 @@
 #import <JSONKit/JSONKit.h>
 
 #import "Program.h"
+#import "DetailViewController.h"
 
 @interface ProgramListTableViewController ()
 
@@ -25,17 +26,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    UILocalNotification *notification=[[UILocalNotification alloc] init];
-    if (notification!=nil) {
-        NSLog(@">> support local notification");
-        NSDate *now=[NSDate new];
-        notification.fireDate=[now dateByAddingTimeInterval:10];
-        notification.timeZone=[NSTimeZone defaultTimeZone];
-        notification.alertBody=@"该去吃晚饭了！";
-        notification.soundName=@"dingdang.caf";
-        [[UIApplication sharedApplication]   scheduleLocalNotification:notification];
-    }
     
     [self loadProgramsData];
 }
@@ -66,7 +56,7 @@
                                         @{
                                         @"name": @"channel_id",
                                         @"op": @"==",
-                                        @"val": @1
+                                        @"val": @3
                                         }
                                     ]
                                 };
@@ -107,12 +97,11 @@
 
 #pragma mark UITableViewDelegate methods
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGSize size = [[[_programs objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
-    return size.height + 10;
-}
-
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CGSize size = [[[_programs objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
+//    return size.height + 10;
+//}
 
 #pragma mark UITableViewDataSource methods
 
@@ -133,23 +122,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *reuseIdentifier = @"Program Cell";
+    NSString *reuseIdentifier = @"ProgramCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"listbg.png"]];
-    }
     Program* program = [_programs objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    [formatter setDateFormat:@"HH:mm"];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
     NSString* dateString = [formatter stringFromDate:program.startDate];
-    NSString* show = [NSString stringWithFormat:@"[%@]%@", dateString, program.name];
-    cell.textLabel.text = show;
+    cell.textLabel.text = program.name;
+    cell.detailTextLabel.text = dateString;
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UITableViewCell* cell = (UITableViewCell*)sender;
+    UITableView* tableView = (UITableView*)[cell superview];
+    NSIndexPath* indexPath = [tableView indexPathForCell:cell];
+    Program* program = [_programs objectAtIndex:indexPath.row];
+    DetailViewController* destination = [segue destinationViewController];
+    destination.program = program;
 }
 
 @end

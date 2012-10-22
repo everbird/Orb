@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4F8B81999BBB4B398094C157 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1EE3010324CA8944DAB82 /* libPods.a */; };
+		625C7E7C163442A500665982 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7B163442A500665982 /* DetailViewController.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		2FD1EE3010324CA8944DAB82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		625C7E7A163442A500665982 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		625C7E7B163442A500665982 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +115,8 @@
 				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
 				62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */,
 				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
+				625C7E7A163442A500665982 /* DetailViewController.h */,
+				625C7E7B163442A500665982 /* DetailViewController.m */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
 			);
 			path = Orb;
@@ -248,6 +253,7 @@
 				62E6D04C1633045000106FBE /* Program.m in Sources */,
 				62E6D04F1633045000106FBE /* Channel.m in Sources */,
 				62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */,
+				625C7E7C163442A500665982 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
