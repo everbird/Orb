@@ -12,6 +12,7 @@
 
 #import "Program.h"
 #import "DetailViewController.h"
+#import "ProgramCell.h"
 
 @interface ProgramListTableViewController ()
 
@@ -19,8 +20,8 @@
 
 @implementation ProgramListTableViewController
 
-
-@synthesize tableView = _tableView;
+@synthesize tv = _tv;
+@synthesize criteria = _criteria;
 
 - (void)viewDidLoad
 {
@@ -41,6 +42,7 @@
 - (void)viewDidUnload
 {
     [self setView:nil];
+    [self setCriteria:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -52,11 +54,17 @@
 
 - (void)loadProgramsData
 {
+    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber* channel_id = [formatter numberFromString:_criteria];
+    
+    NSLog(@">>> channel: %@", channel_id);
+
     NSDictionary* queryDict = @{ @"filters": @[
                                         @{
                                         @"name": @"channel_id",
                                         @"op": @"==",
-                                        @"val": @3
+                                        @"val": channel_id
                                         }
                                     ]
                                 };
@@ -70,6 +78,8 @@
     NSFetchRequest *request = [Program fetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"channelId == %@", _criteria];
+    [request setPredicate:predicate];
     _programs = [Program objectsWithFetchRequest:request];
     NSLog(@">>>%@", _programs);
 }
@@ -82,7 +92,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"Loaded statuses: %@", objects);
     [self loadObjectsFromDataStore];
-    [_tableView reloadData];
+    [_tv reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -95,13 +105,6 @@
     NSLog(@"Hit error: %@", error);
 }
 
-#pragma mark UITableViewDelegate methods
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    CGSize size = [[[_programs objectAtIndex:indexPath.row] name] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, 9000)];
-//    return size.height + 10;
-//}
 
 #pragma mark UITableViewDataSource methods
 
@@ -123,7 +126,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *reuseIdentifier = @"ProgramCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    ProgramCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     Program* program = [_programs objectAtIndex:indexPath.row];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
@@ -131,17 +134,15 @@
     NSString* dateString = [formatter stringFromDate:program.startDate];
     cell.textLabel.text = program.name;
     cell.detailTextLabel.text = dateString;
+    cell.program = program;
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UITableViewCell* cell = (UITableViewCell*)sender;
-    UITableView* tableView = (UITableView*)[cell superview];
-    NSIndexPath* indexPath = [tableView indexPathForCell:cell];
-    Program* program = [_programs objectAtIndex:indexPath.row];
+    ProgramCell* cell = (ProgramCell*)sender;
     DetailViewController* destination = [segue destinationViewController];
-    destination.program = program;
+    destination.program = cell.program;
 }
 
 @end

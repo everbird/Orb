@@ -13,6 +13,9 @@
     NSArray* _programs;
 }
 
+@property (strong, nonatomic) NSString* criteria;
+@property (strong, nonatomic) IBOutlet UITableView* tv;
+
 - (void)loadObjectsFromDataStore;
 
 @end
