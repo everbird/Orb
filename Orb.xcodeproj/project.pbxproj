@@ -29,6 +29,8 @@
 		62E6D05A1633D9E000106FBE /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0541633D9E000106FBE /* listbg.png */; };
 		62E6D05B1633D9E000106FBE /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0551633D9E000106FBE /* listbg@2x.png */; };
 		62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
+		62F373941640225C00E0F103 /* RevealRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F373931640225C00E0F103 /* RevealRootController.m */; };
+		62F3739B1640246100E0F103 /* SideBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F3739A1640246100E0F103 /* SideBarTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,10 @@
 		62E6D0541633D9E000106FBE /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		62E6D0551633D9E000106FBE /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
 		62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramListTableViewController.m; sourceTree = "<group>"; };
+		62F373921640225C00E0F103 /* RevealRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealRootController.h; sourceTree = "<group>"; };
+		62F373931640225C00E0F103 /* RevealRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealRootController.m; sourceTree = "<group>"; };
+		62F373991640246100E0F103 /* SideBarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarTableViewController.h; sourceTree = "<group>"; };
+		62F3739A1640246100E0F103 /* SideBarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarTableViewController.m; sourceTree = "<group>"; };
 		8007C75E20B64CC3BCEC0AC0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -128,6 +134,10 @@
 				625340911638285000B53A58 /* ProgramCell.h */,
 				625340921638285000B53A58 /* ProgramCell.m */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
+				62F373921640225C00E0F103 /* RevealRootController.h */,
+				62F373931640225C00E0F103 /* RevealRootController.m */,
+				62F373991640246100E0F103 /* SideBarTableViewController.h */,
+				62F3739A1640246100E0F103 /* SideBarTableViewController.m */,
 			);
 			path = Orb;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 				625C7E7C163442A500665982 /* DetailViewController.m in Sources */,
 				625C7E801634CA8300665982 /* SearchViewController.m in Sources */,
 				625340931638285000B53A58 /* ProgramCell.m in Sources */,
+				62F373941640225C00E0F103 /* RevealRootController.m in Sources */,
+				62F3739B1640246100E0F103 /* SideBarTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

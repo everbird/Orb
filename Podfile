@@ -1,2 +1,3 @@
 platform :ios
-dependency 'RestKit',  '~> 0.10.1'
+pod 'RestKit',  '~> 0.10.1'
+pod 'JASidePanels',  '~> 0.0.2'

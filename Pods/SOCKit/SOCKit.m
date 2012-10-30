@@ -1,5 +1,5 @@
 //
-// Copyright 2011 Jeff Verkoeyen
+// Copyright 2011-2012 Jeff Verkoeyen
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -376,20 +376,23 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
   }
 
   NSArray* values = nil;
-  NSAssert([self gatherParameterValues:&values fromString:sourceString], @"The pattern can't be used with this string.");
-
+  BOOL succeeded = [self gatherParameterValues:&values fromString:sourceString];
+  NSAssert(succeeded, @"The pattern can't be used with this string.");
+  
   id returnValue = nil;
 
-  NSMethodSignature* sig = [object methodSignatureForSelector:selector];
-  NSAssert(nil != sig, @"%@ does not respond to selector: '%@'", object, NSStringFromSelector(selector));
-  NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
-  [invocation setTarget:object];
-  [invocation setSelector:selector];
-  [self setArgumentsFromValues:values forInvocation:invocation];
-  [invocation invoke];
+  if (succeeded) {
+    NSMethodSignature* sig = [object methodSignatureForSelector:selector];
+    NSAssert(nil != sig, @"%@ does not respond to selector: '%@'", object, NSStringFromSelector(selector));
+    NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
+    [invocation setTarget:object];
+    [invocation setSelector:selector];
+    [self setArgumentsFromValues:values forInvocation:invocation];
+    [invocation invoke];
 
-  if (sig.methodReturnLength) {
-    [invocation getReturnValue:&returnValue];
+    if (sig.methodReturnLength) {
+      [invocation getReturnValue:&returnValue];
+    }
   }
 
   return returnValue;
@@ -401,16 +404,22 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
   NSMutableDictionary* kvs = [[NSMutableDictionary alloc] initWithCapacity:[_parameters count]];
 
   NSArray* values = nil;
-  NSAssert([self gatherParameterValues:&values fromString:sourceString], @"The pattern can't be used with this string.");
+  BOOL succeeded = [self gatherParameterValues:&values fromString:sourceString];
+  NSAssert(succeeded, @"The pattern can't be used with this string.");
 
-  for (NSInteger ix = 0; ix < [values count]; ++ix) {
-    SOCParameter* parameter = [_parameters objectAtIndex:ix];
-    id value = [values objectAtIndex:ix];
-    [kvs setObject:value forKey:parameter.string];
+  NSDictionary* result = nil;
+
+  if (succeeded) {
+    for (NSInteger ix = 0; ix < [values count]; ++ix) {
+      SOCParameter* parameter = [_parameters objectAtIndex:ix];
+      id value = [values objectAtIndex:ix];
+      [kvs setObject:value forKey:parameter.string];
+    }
+
+    result = [[kvs copy] autorelease];
+    [kvs release]; kvs = nil;
   }
 
-  NSDictionary* result = [[kvs copy] autorelease];
-  [kvs release]; kvs = nil;
   return result;
 }
 
