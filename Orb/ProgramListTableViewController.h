@@ -7,15 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RestKit/RestKit.h>
 
-@interface ProgramListTableViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource> {
+#import <RestKit/RestKit.h>
+#import "Channel.h"
+
+@interface ProgramListTableViewController : UITableViewController <RKObjectLoaderDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate> {
     NSArray* _programs;
+    NSMutableArray* _filteredPrograms;
 }
 
-@property (strong, nonatomic) NSString* criteria;
+@property (strong, nonatomic) Channel* channel;
 @property (strong, nonatomic) IBOutlet UITableView* tv;
 
-- (void)loadObjectsFromDataStore;
+@property (nonatomic, copy) NSString* savedSearchTerm;
+@property (nonatomic) NSInteger savedScopeButtonIndex;
+@property (nonatomic) BOOL searchWasActive;
+
+- (void)loadObjectsFromLocal;
 
 @end

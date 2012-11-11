@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4F8B81999BBB4B398094C157 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1EE3010324CA8944DAB82 /* libPods.a */; };
+		621AEFB2164D419400F70FC2 /* AppContext+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB1164D419400F70FC2 /* AppContext+Data.m */; };
+		621AEFB6164D425400F70FC2 /* AppContext+RestKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */; };
+		621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */; };
 		625340931638285000B53A58 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 625340921638285000B53A58 /* ProgramCell.m */; };
 		625C7E7C163442A500665982 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7B163442A500665982 /* DetailViewController.m */; };
-		625C7E801634CA8300665982 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7F1634CA8300665982 /* SearchViewController.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -28,6 +30,7 @@
 		62E6D0591633D9E000106FBE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0531633D9E000106FBE /* Default@2x.png */; };
 		62E6D05A1633D9E000106FBE /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0541633D9E000106FBE /* listbg.png */; };
 		62E6D05B1633D9E000106FBE /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0551633D9E000106FBE /* listbg@2x.png */; };
+		62EB60E1164944EC005EA3C0 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EB60E0164944EC005EA3C0 /* AppContext.m */; };
 		62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
 		62F373941640225C00E0F103 /* RevealRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F373931640225C00E0F103 /* RevealRootController.m */; };
 		62F3739B1640246100E0F103 /* SideBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F3739A1640246100E0F103 /* SideBarTableViewController.m */; };
@@ -35,12 +38,19 @@
 
 /* Begin PBXFileReference section */
 		2FD1EE3010324CA8944DAB82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		621AEFB0164D419400F70FC2 /* AppContext+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+Data.h"; sourceTree = "<group>"; };
+		621AEFB1164D419400F70FC2 /* AppContext+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+Data.m"; sourceTree = "<group>"; };
+		621AEFB4164D425400F70FC2 /* AppContext+RestKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+RestKit.h"; sourceTree = "<group>"; };
+		621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+RestKit.m"; sourceTree = "<group>"; };
+		621AEFB7164D42EC00F70FC2 /* AppConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConsts.h; sourceTree = "<group>"; };
+		621AEFB8164D433000F70FC2 /* AppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommon.h; sourceTree = "<group>"; };
+		621AEFC0164E063B00F70FC2 /* AppDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDefines.h; sourceTree = "<group>"; };
+		621AEFC1164F619600F70FC2 /* OBSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBSearchDisplayController.h; sourceTree = "<group>"; };
+		621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBSearchDisplayController.m; sourceTree = "<group>"; };
 		625340911638285000B53A58 /* ProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCell.h; sourceTree = "<group>"; };
 		625340921638285000B53A58 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		625C7E7A163442A500665982 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		625C7E7B163442A500665982 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		625C7E7E1634CA8300665982 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		625C7E7F1634CA8300665982 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,6 +75,8 @@
 		62E6D0531633D9E000106FBE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		62E6D0541633D9E000106FBE /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		62E6D0551633D9E000106FBE /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
+		62EB60DF164944EC005EA3C0 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
+		62EB60E0164944EC005EA3C0 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
 		62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramListTableViewController.m; sourceTree = "<group>"; };
 		62F373921640225C00E0F103 /* RevealRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealRootController.h; sourceTree = "<group>"; };
 		62F373931640225C00E0F103 /* RevealRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealRootController.m; sourceTree = "<group>"; };
@@ -120,17 +132,13 @@
 		62E6CFF41632E4B100106FBE /* Orb */ = {
 			isa = PBXGroup;
 			children = (
-				62E6D02B1632EF7500106FBE /* models */,
-				62E6D01A1632E92200106FBE /* res */,
-				62E6CFFD1632E4B100106FBE /* AppDelegate.h */,
-				62E6CFFE1632E4B100106FBE /* AppDelegate.m */,
-				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
+				62EB60DD164944CD005EA3C0 /* App */,
+				62E6D02B1632EF7500106FBE /* ManagedModel */,
+				62E6D01A1632E92200106FBE /* Resources */,
 				62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */,
 				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
 				625C7E7A163442A500665982 /* DetailViewController.h */,
 				625C7E7B163442A500665982 /* DetailViewController.m */,
-				625C7E7E1634CA8300665982 /* SearchViewController.h */,
-				625C7E7F1634CA8300665982 /* SearchViewController.m */,
 				625340911638285000B53A58 /* ProgramCell.h */,
 				625340921638285000B53A58 /* ProgramCell.m */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
@@ -138,6 +146,8 @@
 				62F373931640225C00E0F103 /* RevealRootController.m */,
 				62F373991640246100E0F103 /* SideBarTableViewController.h */,
 				62F3739A1640246100E0F103 /* SideBarTableViewController.m */,
+				621AEFC1164F619600F70FC2 /* OBSearchDisplayController.h */,
+				621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */,
 			);
 			path = Orb;
 			sourceTree = "<group>";
@@ -153,7 +163,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		62E6D01A1632E92200106FBE /* res */ = {
+		62E6D01A1632E92200106FBE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				62E6D0501633D9E000106FBE /* BG.png */,
@@ -165,10 +175,10 @@
 				62E6D01C1632E94400106FBE /* dingdang.caf */,
 				62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */,
 			);
-			name = res;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		62E6D02B1632EF7500106FBE /* models */ = {
+		62E6D02B1632EF7500106FBE /* ManagedModel */ = {
 			isa = PBXGroup;
 			children = (
 				62E6D04D1633045000106FBE /* Channel.h */,
@@ -176,7 +186,26 @@
 				62E6D04A1633045000106FBE /* Program.h */,
 				62E6D04B1633045000106FBE /* Program.m */,
 			);
-			name = models;
+			name = ManagedModel;
+			sourceTree = "<group>";
+		};
+		62EB60DD164944CD005EA3C0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				62E6CFFD1632E4B100106FBE /* AppDelegate.h */,
+				62E6CFFE1632E4B100106FBE /* AppDelegate.m */,
+				62EB60DF164944EC005EA3C0 /* AppContext.h */,
+				62EB60E0164944EC005EA3C0 /* AppContext.m */,
+				621AEFB0164D419400F70FC2 /* AppContext+Data.h */,
+				621AEFB1164D419400F70FC2 /* AppContext+Data.m */,
+				621AEFB4164D425400F70FC2 /* AppContext+RestKit.h */,
+				621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */,
+				621AEFB7164D42EC00F70FC2 /* AppConsts.h */,
+				621AEFB8164D433000F70FC2 /* AppCommon.h */,
+				621AEFC0164E063B00F70FC2 /* AppDefines.h */,
+				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +303,13 @@
 				62E6D04F1633045000106FBE /* Channel.m in Sources */,
 				62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */,
 				625C7E7C163442A500665982 /* DetailViewController.m in Sources */,
-				625C7E801634CA8300665982 /* SearchViewController.m in Sources */,
 				625340931638285000B53A58 /* ProgramCell.m in Sources */,
 				62F373941640225C00E0F103 /* RevealRootController.m in Sources */,
 				62F3739B1640246100E0F103 /* SideBarTableViewController.m in Sources */,
+				62EB60E1164944EC005EA3C0 /* AppContext.m in Sources */,
+				621AEFB2164D419400F70FC2 /* AppContext+Data.m in Sources */,
+				621AEFB6164D425400F70FC2 /* AppContext+RestKit.m in Sources */,
+				621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,15 +10,18 @@
 
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
+#import "AppCommon.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://seer.everbird.net"];
+    
+    // Setup for RestKit
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:SEER_API_BASE_URL];
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
-    NSString* databaseName = @"Seer.sqlite";
+    NSString* databaseName = SEER_LOCAL_STORE;
     objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
     
     RKManagedObjectMapping* channelMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Channel" inManagedObjectStore:objectManager.objectStore];
@@ -38,15 +41,19 @@
      nil];
     [programMapping mapRelationship:@"channel" withMapping:channelMapping];
     
-    [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd'T'HH:mm:ss'Z'" inTimeZone:nil];
+    [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd'T'HH:mm:ss'Z'" inTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
     
     [objectManager.mappingProvider registerMapping:channelMapping withRootKeyPath:@"objects"];
     [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
     
-    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:@"/api/channel/:id"];
-    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:@"/api/channel"];
+    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_PROGRAM];
+    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_ALL_CHANNELS];
     
-    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:@"/api/program"];
+    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:SEER_API_PROGRAMS];
+    
+    // Global context init
+    appContext.rootVC = (UINavigationController*)self.window.rootViewController;
+    
     return YES;
 }
 							

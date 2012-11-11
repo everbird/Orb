@@ -131,7 +131,7 @@ enum _lcl_enum_component_t {
 #   define  _lcl_component(_identifier, _header, _name)                        \
     lcl_c##_identifier,                                                        \
   __lcl_log_symbol_lcl_c##_identifier = lcl_c##_identifier,
-#   include "lcl_config_components.h"
+#   include "lcl_config_components.h.pods.main"
 #   undef   _lcl_component
 
    _lcl_component_t_count,
@@ -322,7 +322,7 @@ enum {
 
 
 // Include logging back-end and definition of _lcl_logger.
-#import "lcl_config_logger.h"
+#import "lcl_config_logger.h.pods.main"
 
 
 // For simple configurations where 'lcl_config_logger.h' is empty, define a
@@ -381,7 +381,7 @@ enum {
 
 
 // Include extensions.
-#import "lcl_config_extensions.h"
+#import "lcl_config_extensions.h.pods.main"
 
 
 #endif // __LCL_H__

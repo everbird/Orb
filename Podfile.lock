@@ -5,9 +5,16 @@ PODS:
 - JASidePanels (0.0.2)
 - JSONKit (1.5pre)
 - LibComponentLogging-Core (1.3.1)
+- LibComponentLogging-LogFile (1.2.1):
+  - LibComponentLogging-Core (>= 1.3.1)
 - LibComponentLogging-NSLog (1.0.4):
   - LibComponentLogging-Core (>= 1.1.6)
+- LibComponentLogging-pods (0.0.1):
+  - LibComponentLogging-Core
+- LibComponentLogging-qlog (1.1.1):
+  - LibComponentLogging-Core (>= 1.2.1)
 - NSData+Base64 (1.0.0)
+- NSDate-Extensions (0.0.1)
 - RestKit (0.10.3):
   - RestKit/JSON (= 0.10.3)
 - RestKit/JSON (0.10.3):
@@ -34,6 +41,11 @@ PODS:
 
 DEPENDENCIES:
 - JASidePanels (~> 0.0.2)
+- LibComponentLogging-Core
+- LibComponentLogging-LogFile
+- LibComponentLogging-pods
+- LibComponentLogging-qlog
+- NSDate-Extensions (~> 0.0.1)
 - RestKit (~> 0.10.1)
 
 SPEC CHECKSUMS:
@@ -42,8 +54,12 @@ SPEC CHECKSUMS:
   JASidePanels: 79ba66b0fab9c94d857b21c5e08a6e53a1c602f1
   JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
   LibComponentLogging-Core: 344f6045453ca28fa8f2909eb9624ec9d15ef256
+  LibComponentLogging-LogFile: 2481eb031d43ce234f9e2111b1e9675eefd9502b
   LibComponentLogging-NSLog: a4bb0f6de612eef7b5fcdbd9cc96dc868ba1f2df
+  LibComponentLogging-pods: 1d12de9ecebbab0ec5be2c63f6ab1cf30a5f1f27
+  LibComponentLogging-qlog: c9e17b3bdafdff3a02c39d16a040b778c458e856
   NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
+  NSDate-Extensions: b78c2b3f363acdcd7b5d2547a6bef6656cd8ff70
   RestKit: 1fb57eb941d7d2587648491507a0bcaeb70b67f2
   RestKit/JSON: 1fb57eb941d7d2587648491507a0bcaeb70b67f2
   RestKit/Network: 1fb57eb941d7d2587648491507a0bcaeb70b67f2
