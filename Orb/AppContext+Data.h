@@ -16,9 +16,10 @@
 @interface AppContext (Data) <RKObjectLoaderDelegate>
 
 @property (nonatomic, strong) NSArray* allPrograms;
+@property (nonatomic, strong) NSArray* allChannels;
 
 - (NSArray*)loadTodayProgramsFromLocal;
-- (NSArray*)loadDataFromLocalWithBlock:(ZZFetchRequestBlock)block;
+- (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block;
 
 - (void)fetchAllDataFromRemote;
 - (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel;

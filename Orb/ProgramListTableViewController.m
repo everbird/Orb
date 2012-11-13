@@ -25,7 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self loadObjectsFromLocal];
     
     if (self.savedSearchTerm) {
         [self.searchDisplayController setActive:self.searchWasActive];
@@ -36,49 +37,29 @@
     
     [self.tableView reloadData];
     self.tableView.scrollEnabled = YES;
-    
-    _filteredPrograms = [NSMutableArray arrayWithCapacity:[_programs count]];
+
+    _filteredPrograms = [[NSMutableArray alloc] init];
     [self loadProgramsData];
-}
-
-- (void)loadView
-{
-    [super loadView];
-
-    _channel = [appContext loadChannelById:3];
-    // Load statuses from core data
-    [self loadObjectsFromLocal];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
     
-    [self setView:nil];
     _programs = nil;
     _channel = nil;
     _filteredPrograms = nil;
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     // save the state of the search UI so that it can be restored if the view is re-created
     self.searchWasActive = [self.searchDisplayController isActive];
     self.savedSearchTerm = [self.searchDisplayController.searchBar text];
     self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-- (void)loadAllProgramsData
-{
-    RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager loadObjectsAtResourcePath:@"/api/program" delegate:self];
     
+    [appContext.requestQueue cancelRequestsWithDelegate:self];
 }
 
 - (void)loadProgramsData

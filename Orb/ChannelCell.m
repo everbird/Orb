@@ -1,14 +1,14 @@
 //
-//  ProgramCell.m
+//  ChannelCell.m
 //  Orb
 //
-//  Created by everbird on 10/24/12.
+//  Created by everbird on 11/11/12.
 //  Copyright (c) 2012 everbird. All rights reserved.
 //
 
-#import "ProgramCell.h"
+#import "ChannelCell.h"
 
-@implementation ProgramCell
+@implementation ChannelCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

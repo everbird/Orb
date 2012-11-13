@@ -17,8 +17,10 @@
 @implementation AppContext (Data)
 
 @dynamic allPrograms;
+@dynamic allChannels;
 
 NSString* const kAllPrograms = @"kAllPrograms";
+NSString* const kAllChannels = @"kAllChannels";
 
 - (NSArray*)allPrograms
 {
@@ -33,6 +35,21 @@ NSString* const kAllPrograms = @"kAllPrograms";
 - (void)setAllPrograms:(NSArray *)allPrograms
 {
     objc_setAssociatedObject(self, (__bridge const void *)(kAllPrograms), allPrograms, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSArray*)allChannels
+{
+    id objs = objc_getAssociatedObject(self, (__bridge const void *)(kAllChannels));
+    if (!objs) {
+        objs = [self loadAllChannelsFromLocal];
+        [self setAllChannels:objs];
+    }
+    return objs;
+}
+
+- (void)setAllChannels:(NSArray *)allChannels
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kAllChannels), allChannels, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)fetchAllDataFromRemote
@@ -79,9 +96,17 @@ NSString* const kAllPrograms = @"kAllPrograms";
     [self fetchTodayDataFromRemoteByChannel:channel WithDelegate:self];
 }
 
+- (NSArray*)loadAllChannelsFromLocal
+{
+    return [self loadData:[Channel class] FromLocalWithBlock:^(NSFetchRequest* request) {
+        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
+        [request setSortDescriptors:@[sort]];
+    }];
+}
+
 - (NSArray*)loadTodayProgramsFromLocal
 {
-    return [self loadDataFromLocalWithBlock:^(NSFetchRequest* request) {
+    return [self loadData:[Program class] FromLocalWithBlock:^(NSFetchRequest* request) {
         NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:NO];
         NSDate* today = [[NSDate date] dateAtStartOfDay];
         NSPredicate* predicate = [NSPredicate predicateWithFormat:@"startDate >= %@", today];
@@ -90,11 +115,11 @@ NSString* const kAllPrograms = @"kAllPrograms";
     }];
 }
 
-- (NSArray*)loadDataFromLocalWithBlock:(ZZFetchRequestBlock)block
+- (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block
 {
-    NSFetchRequest *request = [Program fetchRequest];
+    NSFetchRequest *request = [class fetchRequest];
     block(request);
-    return [Program objectsWithFetchRequest:request];
+    return [class objectsWithFetchRequest:request];
 }
 
 - (id)loadObject:(Class)class ById:(NSInteger)objId

@@ -13,6 +13,9 @@
 		621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */; };
 		625340931638285000B53A58 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 625340921638285000B53A58 /* ProgramCell.m */; };
 		625C7E7C163442A500665982 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7B163442A500665982 /* DetailViewController.m */; };
+		6277C214164FC8D5006119A9 /* MenuCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C213164FC8D5006119A9 /* MenuCategoryCell.m */; };
+		6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21B164FE4D4006119A9 /* ChannelsViewController.m */; };
+		6277C220164FE567006119A9 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21F164FE567006119A9 /* ChannelCell.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -51,6 +54,12 @@
 		625340921638285000B53A58 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		625C7E7A163442A500665982 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		625C7E7B163442A500665982 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		6277C212164FC8D5006119A9 /* MenuCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCategoryCell.h; sourceTree = "<group>"; };
+		6277C213164FC8D5006119A9 /* MenuCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCategoryCell.m; sourceTree = "<group>"; };
+		6277C21A164FE4D4006119A9 /* ChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsViewController.h; sourceTree = "<group>"; };
+		6277C21B164FE4D4006119A9 /* ChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
+		6277C21E164FE567006119A9 /* ChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
+		6277C21F164FE567006119A9 /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +109,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6277C21D164FE544006119A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6277C212164FC8D5006119A9 /* MenuCategoryCell.h */,
+				6277C213164FC8D5006119A9 /* MenuCategoryCell.m */,
+				625340911638285000B53A58 /* ProgramCell.h */,
+				625340921638285000B53A58 /* ProgramCell.m */,
+				6277C21E164FE567006119A9 /* ChannelCell.h */,
+				6277C21F164FE567006119A9 /* ChannelCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		62E6CFDF1632E4B000106FBE = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +154,7 @@
 		62E6CFF41632E4B100106FBE /* Orb */ = {
 			isa = PBXGroup;
 			children = (
+				6277C21D164FE544006119A9 /* View */,
 				62EB60DD164944CD005EA3C0 /* App */,
 				62E6D02B1632EF7500106FBE /* ManagedModel */,
 				62E6D01A1632E92200106FBE /* Resources */,
@@ -139,8 +162,6 @@
 				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
 				625C7E7A163442A500665982 /* DetailViewController.h */,
 				625C7E7B163442A500665982 /* DetailViewController.m */,
-				625340911638285000B53A58 /* ProgramCell.h */,
-				625340921638285000B53A58 /* ProgramCell.m */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
 				62F373921640225C00E0F103 /* RevealRootController.h */,
 				62F373931640225C00E0F103 /* RevealRootController.m */,
@@ -148,6 +169,8 @@
 				62F3739A1640246100E0F103 /* SideBarTableViewController.m */,
 				621AEFC1164F619600F70FC2 /* OBSearchDisplayController.h */,
 				621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */,
+				6277C21A164FE4D4006119A9 /* ChannelsViewController.h */,
+				6277C21B164FE4D4006119A9 /* ChannelsViewController.m */,
 			);
 			path = Orb;
 			sourceTree = "<group>";
@@ -310,6 +333,9 @@
 				621AEFB2164D419400F70FC2 /* AppContext+Data.m in Sources */,
 				621AEFB6164D425400F70FC2 /* AppContext+RestKit.m in Sources */,
 				621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */,
+				6277C214164FC8D5006119A9 /* MenuCategoryCell.m in Sources */,
+				6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */,
+				6277C220164FE567006119A9 /* ChannelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
