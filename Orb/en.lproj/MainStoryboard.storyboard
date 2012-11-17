@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aYr-IV-IJu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aYr-IV-IJu">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Channels View Controller - Channels-->
@@ -169,6 +169,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ukC-9E-lz9" userLabel="Start Date Label">
+                                <rect key="frame" x="79" y="165" width="221" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FEy-mb-faL">
                                 <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -184,6 +191,13 @@
                                     <action selector="booking:" destination="BDD-Cu-zE6" eventType="touchUpInside" id="xez-EV-ckd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="结束：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ms1-lm-HZ6">
+                                <rect key="frame" x="20" y="165" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -191,6 +205,7 @@
                     <connections>
                         <outlet property="booking" destination="FEy-mb-faL" id="ZUc-8b-CtI"/>
                         <outlet property="channelLabel" destination="nJ5-r8-xpp" id="yfp-yl-kKW"/>
+                        <outlet property="endDateLabel" destination="ukC-9E-lz9" id="8TB-1y-iV7"/>
                         <outlet property="lengthLabel" destination="Hau-Wl-0KD" id="69j-LB-Z9u"/>
                         <outlet property="startDateLabel" destination="zKH-5J-k4n" id="Mad-MW-yvm"/>
                         <outlet property="tmpLabel" destination="avP-mg-Twn" id="c4F-8I-q3a"/>
@@ -246,7 +261,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tfg-6B-jJo">
             <objects>
-                <navigationController storyboardIdentifier="center" definesPresentationContext="YES" id="i72-r1-XSh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="channels" definesPresentationContext="YES" id="i72-r1-XSh" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zJs-rp-djy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -258,6 +273,70 @@
             </objects>
             <point key="canvasLocation" x="-609" y="-470"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oav-rZ-7fS">
+            <objects>
+                <navigationController storyboardIdentifier="current" definesPresentationContext="YES" id="g1O-kh-GR2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fba-X6-vPo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YMl-TB-kDa" kind="relationship" relationship="rootViewController" id="1xL-rF-Q4m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RZA-18-zKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-609" y="161"/>
+        </scene>
+        <!--Current Programs View Controller - Channel-->
+        <scene sceneID="zKR-iG-d5S">
+            <objects>
+                <tableViewController storyboardIdentifier="" id="YMl-TB-kDa" customClass="CurrentProgramsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ECm-OL-N2v">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramCell" textLabel="mhE-hE-9kG" detailTextLabel="JFr-g5-GDF" style="IBUITableViewCellStyleSubtitle" id="KAq-9P-5hn" customClass="ProgramCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mhE-hE-9kG">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JFr-g5-GDF">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="BDD-Cu-zE6" kind="push" id="jLg-pF-kAI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YMl-TB-kDa" id="mpM-tZ-KPP"/>
+                            <outlet property="delegate" destination="YMl-TB-kDa" id="Qwa-sA-gQp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Channel" id="DpY-4K-mid"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YeX-ox-lGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="155"/>
+        </scene>
     </scenes>
     <classes>
         <class className="ChannelCell" superclassName="UITableViewCell">
@@ -266,12 +345,19 @@
         <class className="ChannelsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChannelsViewController.h"/>
         </class>
+        <class className="CurrentProgramsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentProgramsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
                 <relationship kind="action" name="booking:"/>
                 <relationship kind="outlet" name="booking" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="channelLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lengthLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tmpLabel" candidateClass="UILabel"/>
@@ -307,4 +393,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="jLg-pF-kAI"/>
+    </inferredMetricsTieBreakers>
 </document>

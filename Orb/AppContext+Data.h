@@ -22,7 +22,14 @@
 - (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block;
 
 - (void)fetchAllDataFromRemote;
+- (void)fetchAllChannelsFromRemote;
 - (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel;
+- (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel WithDelegate:(id)delegate;
+
+- (void)fetchCurrentProgramsFromRemote;
+- (void)fetchProgramsFromRemoteByDate:(NSDate*)date;
+- (void)fetchProgramsFromRemoteByDate:(NSDate*)date WithDelegate:(id)delegate;
+
 - (id)loadObject:(Class)class ById:(NSInteger)objId;
 - (Channel*)loadChannelById:(NSInteger)channelId;
 - (Program*)loadProgramById:(NSInteger)programId;

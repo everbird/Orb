@@ -96,6 +96,45 @@ NSString* const kAllChannels = @"kAllChannels";
     [self fetchTodayDataFromRemoteByChannel:channel WithDelegate:self];
 }
 
+- (void)fetchCurrentProgramsFromRemote
+{
+    NSDate* now = [NSDate date];
+    [self fetchProgramsFromRemoteByDate:now];
+}
+
+- (void)fetchProgramsFromRemoteByDate:(NSDate*)date
+{
+    [self fetchProgramsFromRemoteByDate:date WithDelegate:self];
+}
+
+- (void)fetchProgramsFromRemoteByDate:(NSDate*)date WithDelegate:(id)delegate
+{
+    NSDateFormatter* f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:SEER_API_DATE_FORMATE];
+    NSString* dateString = [f stringFromDate:date];
+    NSDictionary* queryDict = @{ @"filters": @[
+                                    @{
+                                        @"name": @"start_dt",
+                                        @"op": @"<=",
+                                        @"val": dateString,
+                                    },
+                                    @{
+                                        @"name": @"end_dt",
+                                        @"op": @">=",
+                                        @"val": dateString,
+                                    },
+                                    ]
+                                };
+    NSString* query = [queryDict JSONString];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager loadObjectsAtResourcePath:[SEER_API_PROGRAMS stringByAppendingQueryParameters:@{@"q": query}] delegate:delegate];
+}
+
+- (void)fetchAllChannelsFromRemote
+{
+    [appContext.objectManager loadObjectsAtResourcePath:SEER_API_CHANNELS delegate:self];
+}
+
 - (NSArray*)loadAllChannelsFromLocal
 {
     return [self loadData:[Channel class] FromLocalWithBlock:^(NSFetchRequest* request) {
@@ -107,7 +146,7 @@ NSString* const kAllChannels = @"kAllChannels";
 - (NSArray*)loadTodayProgramsFromLocal
 {
     return [self loadData:[Program class] FromLocalWithBlock:^(NSFetchRequest* request) {
-        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:NO];
+        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
         NSDate* today = [[NSDate date] dateAtStartOfDay];
         NSPredicate* predicate = [NSPredicate predicateWithFormat:@"startDate >= %@", today];
         [request setSortDescriptors:@[sort]];
@@ -144,8 +183,17 @@ NSString* const kAllChannels = @"kAllChannels";
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
 {
-    NSArray* objects = [self loadTodayProgramsFromLocal];
-    self.allPrograms = objects;
+    NSArray* programs = [self loadTodayProgramsFromLocal];
+    self.allPrograms = programs;
+    
+    NSArray* channels = [self loadAllChannelsFromLocal];
+    self.allChannels = channels;
+    
+    NSDictionary* userInfo = @{
+        @"programs": programs,
+        @"channels": channels,
+    };
+    [[NSNotificationCenter defaultCenter] postNotificationName:N_RELOADED_DATA_REMOTE object:nil userInfo:userInfo];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error

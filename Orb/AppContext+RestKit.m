@@ -17,7 +17,7 @@
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     RKURL* rkUrl = [RKURL URLWithString:SEER_API_BASE_URL];
     objectManager.client.baseURL = rkUrl;
-    objectManager.client.cachePolicy = RKRequestCachePolicyNone;
+//    objectManager.client.cachePolicy = RKRequestCachePolicyNone;
     return objectManager;
 }
 

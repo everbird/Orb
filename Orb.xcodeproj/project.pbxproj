@@ -13,9 +13,11 @@
 		621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */; };
 		625340931638285000B53A58 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 625340921638285000B53A58 /* ProgramCell.m */; };
 		625C7E7C163442A500665982 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7B163442A500665982 /* DetailViewController.m */; };
+		625F4B3716529371005B5A6A /* CurrentProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */; };
 		6277C214164FC8D5006119A9 /* MenuCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C213164FC8D5006119A9 /* MenuCategoryCell.m */; };
 		6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21B164FE4D4006119A9 /* ChannelsViewController.m */; };
 		6277C220164FE567006119A9 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21F164FE567006119A9 /* ChannelCell.m */; };
+		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -25,7 +27,6 @@
 		62E6D0021632E4B100106FBE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */; };
 		62E6D01D1632E94400106FBE /* dingdang.caf in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D01C1632E94400106FBE /* dingdang.caf */; };
 		62E6D0491632F99F00106FBE /* Seer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */; };
-		62E6D04C1633045000106FBE /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D04B1633045000106FBE /* Program.m */; };
 		62E6D04F1633045000106FBE /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D04E1633045000106FBE /* Channel.m */; };
 		62E6D0561633D9E000106FBE /* BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0501633D9E000106FBE /* BG.png */; };
 		62E6D0571633D9E000106FBE /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0511633D9E000106FBE /* BG@2x.png */; };
@@ -54,12 +55,16 @@
 		625340921638285000B53A58 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		625C7E7A163442A500665982 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		625C7E7B163442A500665982 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		625F4B3516529371005B5A6A /* CurrentProgramsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentProgramsViewController.h; sourceTree = "<group>"; };
+		625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentProgramsViewController.m; sourceTree = "<group>"; };
 		6277C212164FC8D5006119A9 /* MenuCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCategoryCell.h; sourceTree = "<group>"; };
 		6277C213164FC8D5006119A9 /* MenuCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCategoryCell.m; sourceTree = "<group>"; };
 		6277C21A164FE4D4006119A9 /* ChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsViewController.h; sourceTree = "<group>"; };
 		6277C21B164FE4D4006119A9 /* ChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
 		6277C21E164FE567006119A9 /* ChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
 		6277C21F164FE567006119A9 /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,8 +79,6 @@
 		62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgramListTableViewController.h; sourceTree = "<group>"; };
 		62E6D01C1632E94400106FBE /* dingdang.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.caf; sourceTree = "<group>"; };
 		62E6D0481632F99F00106FBE /* Seer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Seer.xcdatamodel; sourceTree = "<group>"; };
-		62E6D04A1633045000106FBE /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		62E6D04B1633045000106FBE /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62E6D04D1633045000106FBE /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		62E6D04E1633045000106FBE /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		62E6D0501633D9E000106FBE /* BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG.png; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */,
 				6277C21A164FE4D4006119A9 /* ChannelsViewController.h */,
 				6277C21B164FE4D4006119A9 /* ChannelsViewController.m */,
+				625F4B3516529371005B5A6A /* CurrentProgramsViewController.h */,
+				625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */,
 			);
 			path = Orb;
 			sourceTree = "<group>";
@@ -206,8 +211,8 @@
 			children = (
 				62E6D04D1633045000106FBE /* Channel.h */,
 				62E6D04E1633045000106FBE /* Channel.m */,
-				62E6D04A1633045000106FBE /* Program.h */,
-				62E6D04B1633045000106FBE /* Program.m */,
+				62C893E91652A2BE0093017C /* Program.h */,
+				62C893EA1652A2BE0093017C /* Program.m */,
 			);
 			name = ManagedModel;
 			sourceTree = "<group>";
@@ -322,7 +327,6 @@
 				62E6CFFB1632E4B100106FBE /* main.m in Sources */,
 				62E6CFFF1632E4B100106FBE /* AppDelegate.m in Sources */,
 				62E6D0491632F99F00106FBE /* Seer.xcdatamodeld in Sources */,
-				62E6D04C1633045000106FBE /* Program.m in Sources */,
 				62E6D04F1633045000106FBE /* Channel.m in Sources */,
 				62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */,
 				625C7E7C163442A500665982 /* DetailViewController.m in Sources */,
@@ -336,6 +340,8 @@
 				6277C214164FC8D5006119A9 /* MenuCategoryCell.m in Sources */,
 				6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */,
 				6277C220164FE567006119A9 /* ChannelCell.m in Sources */,
+				625F4B3716529371005B5A6A /* CurrentProgramsViewController.m in Sources */,
+				62C893EB1652A2BE0093017C /* Program.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

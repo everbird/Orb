@@ -16,4 +16,6 @@ typedef void (^ZZFinishedBlock)();
 typedef void (^ZZFailedBlock)(NSError* err);
 typedef void (^ZZFetchRequestBlock)(NSFetchRequest* request);
 
+#define N_RELOADED_DATA_REMOTE  @"remote.data.reloaded"
+
 #endif

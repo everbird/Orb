@@ -20,7 +20,7 @@
         self.shouldDelegateAutorotateToVisiblePanel = NO;
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         self.leftPanel = [storyboard instantiateViewControllerWithIdentifier:@"left"];
-        self.centerPanel = [storyboard instantiateViewControllerWithIdentifier:@"center"];
+        self.centerPanel = [storyboard instantiateViewControllerWithIdentifier:@"channels"];
     }
     
     return self;

@@ -21,16 +21,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteDataReloaded:) name:N_RELOADED_DATA_REMOTE object:nil];
+    
+    [appContext fetchAllChannelsFromRemote];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (void)loadView
-{
-    [super loadView];
 }
 
 #pragma mark - Table view data source
@@ -48,7 +47,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseIdentifier = @"ChannelCell";
-    ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ChannelCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
         cell = [[ChannelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
@@ -64,6 +64,11 @@
     ChannelCell* cell = (ChannelCell*)sender;
     ProgramListTableViewController* destination = [segue destinationViewController];
     destination.channel = cell.channel;
+}
+
+- (void)remoteDataReloaded:(NSNotification*) notification
+{
+    [self.tableView reloadData];
 }
 
 @end

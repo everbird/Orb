@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+#import "AppCommon.h"
+
 @interface DetailViewController ()
 
 @end
@@ -20,14 +22,6 @@
 @synthesize startDateLabel = _startDateLabel;
 @synthesize booking = _booking;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -42,6 +36,7 @@
     [self setChannelLabel:nil];
     [self setStartDateLabel:nil];
     [self setBooking:nil];
+    [self setEndDateLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -60,10 +55,12 @@
     Channel* channel = (Channel*)_program.channel;
     _channelLabel.text = [channel name];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
-    NSString* dateString = [formatter stringFromDate:_program.startDate];
-    _startDateLabel.text = dateString;
+    [formatter setDateFormat:DATE_FORMAT];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
+    NSString* startDateString = [formatter stringFromDate:_program.startDate];
+    NSString* endDateString = [formatter stringFromDate:_program.endDate];
+    _startDateLabel.text = startDateString;
+    _endDateLabel.text = endDateString;
 }
 
 - (IBAction)booking:(id)sender
@@ -80,13 +77,13 @@
         Channel* channel = (Channel*)_program.channel;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"HH:mm"];
-        [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
         NSString* dateString = [formatter stringFromDate:_program.startDate];
 //        notification.fireDate=_program.startDate;
         NSDate* now = [NSDate new];
         notification.fireDate=[now dateByAddingTimeInterval:10];
 //        notification.timeZone=[NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.timeZone = [NSTimeZone timeZoneWithAbbreviation:TIMEZONE];
         notification.alertBody=[NSString stringWithFormat:@"%@ %@ 即将开播: %@", [channel name], dateString, _program.name];
         notification.soundName=@"dingdang.caf";
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];

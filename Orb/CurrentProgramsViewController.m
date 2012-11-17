@@ -1,26 +1,23 @@
 //
-//  ViewController.m
+//  CurrentProgramsViewController.m
 //  Orb
 //
-//  Created by everbird on 10/20/12.
+//  Created by everbird on 11/13/12.
 //  Copyright (c) 2012 everbird. All rights reserved.
 //
 
-#import "ProgramListTableViewController.h"
-#import <RestKit/CoreData.h>
-#import <JSONKit/JSONKit.h>
-#import <NSDate-Extensions/NSDate-Utilities.h>
+#import "CurrentProgramsViewController.h"
 
 #import "AppCommon.h"
 #import "Program.h"
 #import "DetailViewController.h"
 #import "ProgramCell.h"
 
-@interface ProgramListTableViewController ()
+@interface CurrentProgramsViewController ()
 
 @end
 
-@implementation ProgramListTableViewController
+@implementation CurrentProgramsViewController
 
 - (void)viewDidLoad
 {
@@ -39,9 +36,14 @@
     self.tableView.scrollEnabled = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remoteDataReloaded:) name:N_RELOADED_DATA_REMOTE object:nil];
-    
+
     _filteredPrograms = [[NSMutableArray alloc] init];
-    [self fetchProgramsData];
+    [appContext fetchCurrentProgramsFromRemote];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 - (void)viewDidUnload
@@ -49,7 +51,6 @@
     [super viewDidUnload];
     
     _programs = nil;
-    _channel = nil;
     _filteredPrograms = nil;
 }
 
@@ -64,30 +65,18 @@
     [appContext.requestQueue cancelAllRequests];
 }
 
-- (void)fetchProgramsData
-{
-    if (_channel) {
-        [appContext fetchTodayDataFromRemoteByChannel:_channel];
-    } else {
-        [appContext fetchAllDataFromRemote];
-    }
-}
-
 - (void)loadObjectsFromLocal
 {
     NSFetchRequest *request = [Program fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
-    if (_channel) {
-        NSDate* today = [[NSDate date] dateAtStartOfDay];
-        
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"channelId == %d AND startDate >= %@", [_channel.id intValue], today];
-        [request setPredicate:predicate];
-    }
+    NSDate* now = [NSDate date];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", now, now];
+    [request setPredicate:predicate];
     _programs = [Program objectsWithFetchRequest:request];
 }
 
-#pragma mark UITableViewDataSource methods
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -110,15 +99,6 @@
         program = [_programs objectAtIndex:indexPath.row];
     }
     return [self makeCell:program ForTable:tableView];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        Program* program = [_filteredPrograms objectAtIndex:indexPath.row];
-        ProgramCell* cell = [self makeCell:program ForTable:tableView];
-        [self performSegueWithIdentifier:@"ProgramListToDetail" sender:cell];
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -9,6 +9,9 @@
 #import "SideBarTableViewController.h"
 
 #import "MenuCategoryCell.h"
+#import "AppCommon.h"
+
+#import "RevealRootController.h"
 
 @interface SideBarTableViewController ()
 
@@ -60,8 +63,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reuseIdentifier = @"MenuCell";
-    MenuCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+//    MenuCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    MenuCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
         cell = [[MenuCategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
@@ -78,6 +82,9 @@
 {
     NSString* category = [_menuItems objectAtIndex:indexPath.row];
     NSLog(@"selected: %@", category);
+    RevealRootController* vc = (RevealRootController*)appContext.rootVC;
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    vc.centerPanel = [storyboard instantiateViewControllerWithIdentifier:category];
 }
 
 @end

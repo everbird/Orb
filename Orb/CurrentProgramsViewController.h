@@ -1,8 +1,8 @@
 //
-//  ViewController.h
+//  CurrentProgramsViewController.h
 //  Orb
 //
-//  Created by everbird on 10/20/12.
+//  Created by everbird on 11/13/12.
 //  Copyright (c) 2012 everbird. All rights reserved.
 //
 
@@ -11,12 +11,11 @@
 #import <RestKit/RestKit.h>
 #import "Channel.h"
 
-@interface ProgramListTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate> {
+@interface CurrentProgramsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate> {
     NSArray* _programs;
     NSMutableArray* _filteredPrograms;
 }
 
-@property (strong, nonatomic) Channel* channel;
 @property (strong, nonatomic) IBOutlet UITableView* tv;
 
 @property (nonatomic, copy) NSString* savedSearchTerm;

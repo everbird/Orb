@@ -38,6 +38,7 @@
      @"channel_id", @"channelId",
      @"start_dt", @"startDate",
      @"update_dt", @"updateDate",
+     @"end_dt", @"endDate",
      nil];
     [programMapping mapRelationship:@"channel" withMapping:channelMapping];
     
@@ -47,7 +48,7 @@
     [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
     
     [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_PROGRAM];
-    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_ALL_CHANNELS];
+    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_CHANNELS];
     
     [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:SEER_API_PROGRAMS];
     
