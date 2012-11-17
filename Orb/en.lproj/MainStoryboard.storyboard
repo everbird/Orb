@@ -99,7 +99,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5J-0o-NFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="c0w-Xw-pFR" customClass="OBSearchDisplayController">
+                <searchDisplayController id="c0w-Xw-pFR">
                     <connections>
                         <outlet property="delegate" destination="rAL-XR-RJz" id="3Dk-0v-AOX"/>
                         <outlet property="searchBar" destination="xaZ-F8-pEi" id="b0v-A5-VVE"/>
@@ -333,7 +333,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="BDD-Cu-zE6" kind="push" id="jLg-pF-kAI"/>
+                                    <segue destination="BDD-Cu-zE6" kind="push" identifier="CurrentListToDetail" id="jLg-pF-kAI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -391,9 +391,6 @@
         </class>
         <class className="MenuCategoryCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuCategoryCell.h"/>
-        </class>
-        <class className="OBSearchDisplayController" superclassName="UISearchDisplayController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OBSearchDisplayController.h"/>
         </class>
         <class className="ProgramCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramCell.h"/>

@@ -9,19 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import <RestKit/RestKit.h>
-#import "Channel.h"
+#import "ProgramsBaseController.h"
 
-@interface CurrentProgramsViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate> {
-    NSArray* _programs;
-    NSMutableArray* _filteredPrograms;
-}
-
-@property (strong, nonatomic) IBOutlet UITableView* tv;
-
-@property (nonatomic, copy) NSString* savedSearchTerm;
-@property (nonatomic) NSInteger savedScopeButtonIndex;
-@property (nonatomic) BOOL searchWasActive;
-
-- (void)loadObjectsFromLocal;
+@interface CurrentProgramsViewController : ProgramsBaseController
 
 @end
