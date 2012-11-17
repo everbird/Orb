@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="aYr-IV-IJu">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
@@ -288,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="-609" y="161"/>
         </scene>
-        <!--Current Programs View Controller - Channel-->
+        <!--Current Programs View Controller - Current-->
         <scene sceneID="zKR-iG-d5S">
             <objects>
                 <tableViewController storyboardIdentifier="" id="YMl-TB-kDa" customClass="CurrentProgramsViewController" sceneMemberID="viewController">
@@ -296,9 +295,21 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="EnY-AS-mz3">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Current</string>
+                                <string>All</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="YMl-TB-kDa" id="zTq-mL-ePu"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProgramCell" textLabel="mhE-hE-9kG" detailTextLabel="JFr-g5-GDF" style="IBUITableViewCellStyleSubtitle" id="KAq-9P-5hn" customClass="ProgramCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -331,9 +342,21 @@
                             <outlet property="delegate" destination="YMl-TB-kDa" id="Qwa-sA-gQp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Channel" id="DpY-4K-mid"/>
+                    <navigationItem key="navigationItem" title="Current" id="DpY-4K-mid"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="77W-Fi-OKb" id="uwO-Cf-Ncb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeX-ox-lGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="77W-Fi-OKb">
+                    <connections>
+                        <outlet property="delegate" destination="YMl-TB-kDa" id="lUs-Ap-uQl"/>
+                        <outlet property="searchBar" destination="EnY-AS-mz3" id="g2c-b0-pNc"/>
+                        <outlet property="searchContentsController" destination="YMl-TB-kDa" id="kIx-aK-idy"/>
+                        <outlet property="searchResultsDataSource" destination="YMl-TB-kDa" id="ibp-BO-DKu"/>
+                        <outlet property="searchResultsDelegate" destination="YMl-TB-kDa" id="9pr-Ca-YE1"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="215" y="155"/>
         </scene>
