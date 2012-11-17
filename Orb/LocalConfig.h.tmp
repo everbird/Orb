@@ -1,0 +1,16 @@
+//
+//  LocalConfig.h
+//  Orb
+//
+//  Created by everbird on 11/17/12.
+//  Copyright (c) 2012 everbird. All rights reserved.
+//
+
+#ifndef Orb_LocalConfig_h
+#define Orb_LocalConfig_h
+
+
+#define SEER_API_BASE_URL       @"http://cidar:8100"
+#define SEER_LOCAL_STORE        @"SeerLocalDev.sqlite"
+
+#endif

@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  Orb
+//
+//  Created by everbird on 11/17/12.
+//  Copyright (c) 2012 everbird. All rights reserved.
+//
+
+#include "Share.xcconfig"
+
+GCC_PREPROCESSOR_DEFINITIONS = ENVIRONMENT=1

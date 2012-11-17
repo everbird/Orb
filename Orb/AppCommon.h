@@ -9,6 +9,7 @@
 #ifndef Orb_AppCommon_h
 #define Orb_AppCommon_h
 
+#import "AppConfig.h"
 #import "AppContext.h"
 #import "AppContext+RestKit.h"
 #import "AppContext+Data.h"

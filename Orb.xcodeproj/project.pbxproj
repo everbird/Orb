@@ -8,6 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		4F8B81999BBB4B398094C157 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1EE3010324CA8944DAB82 /* libPods.a */; };
+		620BBAB41657D09B00AB3E36 /* Share.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBAB31657D09B00AB3E36 /* Share.xcconfig */; };
+		620BBB131657D49300AB3E36 /* Dev-Product.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */; };
+		620BBB151657D90E00AB3E36 /* Dev-LocalDev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */; };
+		620BBB171657D93600AB3E36 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB161657D93600AB3E36 /* Release.xcconfig */; };
+		620BBB1A1657D98400AB3E36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6CFFA1632E4B100106FBE /* main.m */; };
+		620BBB1B1657D98400AB3E36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6CFFE1632E4B100106FBE /* AppDelegate.m */; };
+		620BBB1C1657D98400AB3E36 /* Seer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */; };
+		620BBB1D1657D98400AB3E36 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6D04E1633045000106FBE /* Channel.m */; };
+		620BBB1E1657D98400AB3E36 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
+		620BBB1F1657D98400AB3E36 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C7E7B163442A500665982 /* DetailViewController.m */; };
+		620BBB201657D98400AB3E36 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 625340921638285000B53A58 /* ProgramCell.m */; };
+		620BBB211657D98400AB3E36 /* RevealRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F373931640225C00E0F103 /* RevealRootController.m */; };
+		620BBB221657D98400AB3E36 /* SideBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F3739A1640246100E0F103 /* SideBarTableViewController.m */; };
+		620BBB231657D98400AB3E36 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EB60E0164944EC005EA3C0 /* AppContext.m */; };
+		620BBB241657D98400AB3E36 /* AppContext+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB1164D419400F70FC2 /* AppContext+Data.m */; };
+		620BBB251657D98400AB3E36 /* AppContext+RestKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */; };
+		620BBB261657D98400AB3E36 /* OBSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */; };
+		620BBB271657D98400AB3E36 /* MenuCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C213164FC8D5006119A9 /* MenuCategoryCell.m */; };
+		620BBB281657D98400AB3E36 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21B164FE4D4006119A9 /* ChannelsViewController.m */; };
+		620BBB291657D98400AB3E36 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21F164FE567006119A9 /* ChannelCell.m */; };
+		620BBB2A1657D98400AB3E36 /* CurrentProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */; };
+		620BBB2B1657D98400AB3E36 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
+		620BBB2D1657D98400AB3E36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
+		620BBB2E1657D98400AB3E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
+		620BBB2F1657D98400AB3E36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
+		620BBB301657D98400AB3E36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1EE3010324CA8944DAB82 /* libPods.a */; };
+		620BBB321657D98400AB3E36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62E6CFF71632E4B100106FBE /* InfoPlist.strings */; };
+		620BBB331657D98400AB3E36 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */; };
+		620BBB341657D98400AB3E36 /* dingdang.caf in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D01C1632E94400106FBE /* dingdang.caf */; };
+		620BBB351657D98400AB3E36 /* BG.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0501633D9E000106FBE /* BG.png */; };
+		620BBB361657D98400AB3E36 /* BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0511633D9E000106FBE /* BG@2x.png */; };
+		620BBB371657D98400AB3E36 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0521633D9E000106FBE /* Default.png */; };
+		620BBB381657D98400AB3E36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0531633D9E000106FBE /* Default@2x.png */; };
+		620BBB391657D98400AB3E36 /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0541633D9E000106FBE /* listbg.png */; };
+		620BBB3A1657D98400AB3E36 /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0551633D9E000106FBE /* listbg@2x.png */; };
+		620BBB3B1657D98400AB3E36 /* Share.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBAB31657D09B00AB3E36 /* Share.xcconfig */; };
+		620BBB3C1657D98400AB3E36 /* Dev-Product.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */; };
+		620BBB3D1657D98400AB3E36 /* Dev-LocalDev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */; };
+		620BBB3E1657D98400AB3E36 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB161657D93600AB3E36 /* Release.xcconfig */; };
 		621AEFB2164D419400F70FC2 /* AppContext+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB1164D419400F70FC2 /* AppContext+Data.m */; };
 		621AEFB6164D425400F70FC2 /* AppContext+RestKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */; };
 		621AEFC3164F619600F70FC2 /* OBSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 621AEFC2164F619600F70FC2 /* OBSearchDisplayController.m */; };
@@ -17,6 +56,8 @@
 		6277C214164FC8D5006119A9 /* MenuCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C213164FC8D5006119A9 /* MenuCategoryCell.m */; };
 		6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21B164FE4D4006119A9 /* ChannelsViewController.m */; };
 		6277C220164FE567006119A9 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21F164FE567006119A9 /* ChannelCell.m */; };
+		627872161657DCF900306128 /* Dev-Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 627872151657DCF900306128 /* Dev-Dev.xcconfig */; };
+		627872171657DCF900306128 /* Dev-Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 627872151657DCF900306128 /* Dev-Dev.xcconfig */; };
 		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
@@ -42,6 +83,13 @@
 
 /* Begin PBXFileReference section */
 		2FD1EE3010324CA8944DAB82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		620BBAB31657D09B00AB3E36 /* Share.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Share.xcconfig; sourceTree = "<group>"; };
+		620BBB111657D36200AB3E36 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Product.xcconfig"; sourceTree = "<group>"; };
+		620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-LocalDev.xcconfig"; sourceTree = "<group>"; };
+		620BBB161657D93600AB3E36 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		620BBB431657D98400AB3E36 /* Orb Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Orb Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		620BBB451657D98500AB3E36 /* Orb Dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Orb Dev-Info.plist"; path = "/Users/everbird/workspace/seer/Orb/Orb Dev-Info.plist"; sourceTree = "<absolute>"; };
 		621AEFB0164D419400F70FC2 /* AppContext+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+Data.h"; sourceTree = "<group>"; };
 		621AEFB1164D419400F70FC2 /* AppContext+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+Data.m"; sourceTree = "<group>"; };
 		621AEFB4164D425400F70FC2 /* AppContext+RestKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+RestKit.h"; sourceTree = "<group>"; };
@@ -63,6 +111,9 @@
 		6277C21B164FE4D4006119A9 /* ChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
 		6277C21E164FE567006119A9 /* ChannelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
 		6277C21F164FE567006119A9 /* ChannelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		627872131657DBFB00306128 /* LocalConfig.h.tmp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocalConfig.h.tmp; sourceTree = "<group>"; };
+		627872141657DCAD00306128 /* LocalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalConfig.h; sourceTree = "<group>"; };
+		627872151657DCF900306128 /* Dev-Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Dev.xcconfig"; sourceTree = "<group>"; };
 		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +149,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		620BBB2C1657D98400AB3E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				620BBB2D1657D98400AB3E36 /* UIKit.framework in Frameworks */,
+				620BBB2E1657D98400AB3E36 /* Foundation.framework in Frameworks */,
+				620BBB2F1657D98400AB3E36 /* CoreGraphics.framework in Frameworks */,
+				620BBB301657D98400AB3E36 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62E6CFE71632E4B100106FBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,6 +174,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		620BBAB11657D07E00AB3E36 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				620BBAB31657D09B00AB3E36 /* Share.xcconfig */,
+				620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */,
+				627872151657DCF900306128 /* Dev-Dev.xcconfig */,
+				620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */,
+				620BBB161657D93600AB3E36 /* Release.xcconfig */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		6277C21D164FE544006119A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				62E6CFEA1632E4B100106FBE /* Orb.app */,
+				620BBB431657D98400AB3E36 /* Orb Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +232,7 @@
 		62E6CFF41632E4B100106FBE /* Orb */ = {
 			isa = PBXGroup;
 			children = (
+				620BBAB11657D07E00AB3E36 /* Config */,
 				6277C21D164FE544006119A9 /* View */,
 				62EB60DD164944CD005EA3C0 /* App */,
 				62E6D02B1632EF7500106FBE /* ManagedModel */,
@@ -184,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				62E6CFF61632E4B100106FBE /* Orb-Info.plist */,
+				620BBB451657D98500AB3E36 /* Orb Dev-Info.plist */,
 				62E6CFF71632E4B100106FBE /* InfoPlist.strings */,
 				62E6CFFA1632E4B100106FBE /* main.m */,
 				62E6CFFC1632E4B100106FBE /* Orb-Prefix.pch */,
@@ -231,7 +308,10 @@
 				621AEFB7164D42EC00F70FC2 /* AppConsts.h */,
 				621AEFB8164D433000F70FC2 /* AppCommon.h */,
 				621AEFC0164E063B00F70FC2 /* AppDefines.h */,
+				620BBB111657D36200AB3E36 /* AppConfig.h */,
 				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
+				627872131657DBFB00306128 /* LocalConfig.h.tmp */,
+				627872141657DCAD00306128 /* LocalConfig.h */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -239,6 +319,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		620BBB181657D98400AB3E36 /* Orb Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 620BBB401657D98400AB3E36 /* Build configuration list for PBXNativeTarget "Orb Dev" */;
+			buildPhases = (
+				620BBB191657D98400AB3E36 /* Sources */,
+				620BBB2C1657D98400AB3E36 /* Frameworks */,
+				620BBB311657D98400AB3E36 /* Resources */,
+				620BBB3F1657D98400AB3E36 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Orb Dev";
+			productName = Orb;
+			productReference = 620BBB431657D98400AB3E36 /* Orb Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		62E6CFE91632E4B100106FBE /* Orb */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62E6D0081632E4B100106FBE /* Build configuration list for PBXNativeTarget "Orb" */;
@@ -279,11 +377,33 @@
 			projectRoot = "";
 			targets = (
 				62E6CFE91632E4B100106FBE /* Orb */,
+				620BBB181657D98400AB3E36 /* Orb Dev */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		620BBB311657D98400AB3E36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				620BBB321657D98400AB3E36 /* InfoPlist.strings in Resources */,
+				620BBB331657D98400AB3E36 /* MainStoryboard.storyboard in Resources */,
+				620BBB341657D98400AB3E36 /* dingdang.caf in Resources */,
+				620BBB351657D98400AB3E36 /* BG.png in Resources */,
+				620BBB361657D98400AB3E36 /* BG@2x.png in Resources */,
+				620BBB371657D98400AB3E36 /* Default.png in Resources */,
+				620BBB381657D98400AB3E36 /* Default@2x.png in Resources */,
+				620BBB391657D98400AB3E36 /* listbg.png in Resources */,
+				620BBB3A1657D98400AB3E36 /* listbg@2x.png in Resources */,
+				620BBB3B1657D98400AB3E36 /* Share.xcconfig in Resources */,
+				620BBB3C1657D98400AB3E36 /* Dev-Product.xcconfig in Resources */,
+				620BBB3D1657D98400AB3E36 /* Dev-LocalDev.xcconfig in Resources */,
+				620BBB3E1657D98400AB3E36 /* Release.xcconfig in Resources */,
+				627872171657DCF900306128 /* Dev-Dev.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62E6CFE81632E4B100106FBE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,12 +417,31 @@
 				62E6D0591633D9E000106FBE /* Default@2x.png in Resources */,
 				62E6D05A1633D9E000106FBE /* listbg.png in Resources */,
 				62E6D05B1633D9E000106FBE /* listbg@2x.png in Resources */,
+				620BBAB41657D09B00AB3E36 /* Share.xcconfig in Resources */,
+				620BBB131657D49300AB3E36 /* Dev-Product.xcconfig in Resources */,
+				620BBB151657D90E00AB3E36 /* Dev-LocalDev.xcconfig in Resources */,
+				620BBB171657D93600AB3E36 /* Release.xcconfig in Resources */,
+				627872161657DCF900306128 /* Dev-Dev.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		620BBB3F1657D98400AB3E36 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		F1B9673EEB8643339E2A7D35 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +459,31 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		620BBB191657D98400AB3E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				620BBB1A1657D98400AB3E36 /* main.m in Sources */,
+				620BBB1B1657D98400AB3E36 /* AppDelegate.m in Sources */,
+				620BBB1C1657D98400AB3E36 /* Seer.xcdatamodeld in Sources */,
+				620BBB1D1657D98400AB3E36 /* Channel.m in Sources */,
+				620BBB1E1657D98400AB3E36 /* ProgramListTableViewController.m in Sources */,
+				620BBB1F1657D98400AB3E36 /* DetailViewController.m in Sources */,
+				620BBB201657D98400AB3E36 /* ProgramCell.m in Sources */,
+				620BBB211657D98400AB3E36 /* RevealRootController.m in Sources */,
+				620BBB221657D98400AB3E36 /* SideBarTableViewController.m in Sources */,
+				620BBB231657D98400AB3E36 /* AppContext.m in Sources */,
+				620BBB241657D98400AB3E36 /* AppContext+Data.m in Sources */,
+				620BBB251657D98400AB3E36 /* AppContext+RestKit.m in Sources */,
+				620BBB261657D98400AB3E36 /* OBSearchDisplayController.m in Sources */,
+				620BBB271657D98400AB3E36 /* MenuCategoryCell.m in Sources */,
+				620BBB281657D98400AB3E36 /* ChannelsViewController.m in Sources */,
+				620BBB291657D98400AB3E36 /* ChannelCell.m in Sources */,
+				620BBB2A1657D98400AB3E36 /* CurrentProgramsViewController.m in Sources */,
+				620BBB2B1657D98400AB3E36 /* Program.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		62E6CFE61632E4B100106FBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +531,29 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		620BBB411657D98400AB3E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Orb/Orb-Prefix.pch";
+				INFOPLIST_FILE = "Orb Dev-Info.plist";
+				PRODUCT_NAME = "Orb Dev";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		620BBB421657D98400AB3E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Orb/Orb-Prefix.pch";
+				INFOPLIST_FILE = "Orb Dev-Info.plist";
+				PRODUCT_NAME = "Orb Dev";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		62E6D0061632E4B100106FBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -418,7 +605,7 @@
 		};
 		62E6D0091632E4B100106FBE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8007C75E20B64CC3BCEC0AC0 /* Pods.xcconfig */;
+			baseConfigurationReference = 620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Orb/Orb-Prefix.pch";
@@ -430,7 +617,7 @@
 		};
 		62E6D00A1632E4B100106FBE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8007C75E20B64CC3BCEC0AC0 /* Pods.xcconfig */;
+			baseConfigurationReference = 620BBB161657D93600AB3E36 /* Release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Orb/Orb-Prefix.pch";
@@ -443,6 +630,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		620BBB401657D98400AB3E36 /* Build configuration list for PBXNativeTarget "Orb Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				620BBB411657D98400AB3E36 /* Debug */,
+				620BBB421657D98400AB3E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		62E6CFE41632E4B000106FBE /* Build configuration list for PBXProject "Orb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
