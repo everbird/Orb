@@ -28,6 +28,12 @@
     
     _filteredPrograms = [[NSMutableArray alloc] init];
     [self fetchProgramsData];
+    
+    _sections = @[
+        @"正在播出",
+        @"即将播出",
+        @"已播放完",
+    ];
 }
 
 - (void)viewDidUnload
@@ -62,10 +68,47 @@
 
 #pragma mark UITableViewDataSource methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [_sections count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [_sections objectAtIndex:section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSArray* programs = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        programs = _filteredPrograms;
+    }
+	else
+	{
+        programs = _programs;
+    }
+    NSArray* sectionPrograms = [self getProgramsFrom:programs BySectionIndex:section];
+    return [sectionPrograms count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray* programs = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        programs = _filteredPrograms;
+    } else {
+        programs = _programs;
+    }
+    Program* program = [self getProgramFrom:programs ByIndexPath:indexPath];
+    return [self makeCell:program ForTable:tableView];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        Program* program = [_filteredPrograms objectAtIndex:indexPath.row];
+        Program* program = [self getProgramFrom:_filteredPrograms ByIndexPath:indexPath];
         ProgramCell* cell = [self makeCell:program ForTable:tableView];
         [self performSegueWithIdentifier:@"ProgramListToDetail" sender:cell];
     }

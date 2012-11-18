@@ -12,7 +12,9 @@
 #import "ProgramsBaseController.h"
 #import "Channel.h"
 
-@interface ProgramListTableViewController : ProgramsBaseController
+@interface ProgramListTableViewController : ProgramsBaseController {
+    NSArray* _sections;
+}
 
 @property (strong, nonatomic) Channel* channel;
 

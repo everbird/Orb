@@ -8,7 +8,6 @@
 
 #import "ProgramsBaseController.h"
 
-
 #import <RestKit/CoreData.h>
 #import <JSONKit/JSONKit.h>
 #import <NSDate-Extensions/NSDate-Utilities.h>
@@ -176,6 +175,34 @@
     cell.detailTextLabel.text = dateString;
     cell.program = program;
     return cell;
+}
+
+- (NSArray*)getProgramsFrom:(NSArray*)programs BySectionIndex:(NSInteger)sectionIndex
+{
+    NSDate* now = [NSDate date];
+    NSPredicate* predicate = nil;
+    switch (sectionIndex) {
+        case 0:
+            predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", now, now];
+            break;
+            
+        case 1:
+            predicate = [NSPredicate predicateWithFormat:@"startDate > %@", now];
+            break;
+            
+        case 2:
+            predicate = [NSPredicate predicateWithFormat:@"endDate < %@", now];
+            
+        default:
+            break;
+    }
+    return [programs filteredArrayUsingPredicate:predicate];
+}
+
+- (Program*)getProgramFrom:(NSArray*)programs ByIndexPath:(NSIndexPath*)indexPath
+{
+    NSArray* filterdPrograms = [self getProgramsFrom:programs BySectionIndex:indexPath.section];
+    return [filterdPrograms objectAtIndex:indexPath.row];
 }
 
 @end

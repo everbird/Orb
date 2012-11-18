@@ -43,8 +43,8 @@
     [super loadView];
     
     _menuItems = @[
-    @"channels",
-    @"current",
+        @"current",
+        @"channels",
     ];
 }
 

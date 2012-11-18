@@ -368,11 +368,8 @@
         <class className="ChannelsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ChannelsViewController.h"/>
         </class>
-        <class className="CurrentProgramsViewController" superclassName="UITableViewController">
+        <class className="CurrentProgramsViewController" superclassName="ProgramsBaseController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentProgramsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
-            </relationships>
         </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
@@ -395,8 +392,11 @@
         <class className="ProgramCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramCell.h"/>
         </class>
-        <class className="ProgramListTableViewController" superclassName="UITableViewController">
+        <class className="ProgramListTableViewController" superclassName="ProgramsBaseController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramListTableViewController.h"/>
+        </class>
+        <class className="ProgramsBaseController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramsBaseController.h"/>
             <relationships>
                 <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
             </relationships>

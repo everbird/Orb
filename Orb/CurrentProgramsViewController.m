@@ -43,7 +43,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        Program* program = [_filteredPrograms objectAtIndex:indexPath.row];
+        Program* program = [self getProgramFrom:_filteredPrograms ByIndexPath:indexPath];
         ProgramCell* cell = [self makeCell:program ForTable:tableView];
         [self performSegueWithIdentifier:@"CurrentListToDetail" sender:cell];
     }

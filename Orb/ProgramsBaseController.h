@@ -25,5 +25,7 @@
 
 - (void)loadObjectsFromLocal;
 - (ProgramCell*)makeCell:(Program*)program ForTable:(UITableView*)tableView;
+- (NSArray*)getProgramsFrom:(NSArray*)programs BySectionIndex:(NSInteger)sectionIndex;
+- (Program*)getProgramFrom:(NSArray*)programs ByIndexPath:(NSIndexPath*)indexPath;
 
 @end
