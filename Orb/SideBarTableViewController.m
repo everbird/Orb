@@ -45,6 +45,7 @@
     _menuItems = @[
         @"current",
         @"channels",
+        @"sync",
     ];
 }
 
@@ -81,6 +82,12 @@
 {
     NSString* category = [_menuItems objectAtIndex:indexPath.row];
     NSLog(@"selected: %@", category);
+    
+    if ([category isEqualToString:@"sync"]) {
+        category = @"channels";
+        [appContext fetchAllDataFromRemote];
+    }
+
     RevealRootController* vc = (RevealRootController*)appContext.rootVC;
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     vc.centerPanel = [storyboard instantiateViewControllerWithIdentifier:category];
