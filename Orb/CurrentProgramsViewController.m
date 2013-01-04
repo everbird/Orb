@@ -30,7 +30,7 @@
 - (void)loadObjectsFromLocal
 {
     NSFetchRequest *request = [Program fetchRequest];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"channel.priority" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
     NSDate* now = [NSDate date];
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", now, now];
