@@ -28,6 +28,7 @@
     channelMapping.primaryKeyAttribute = @"id";
     [channelMapping mapKeyPath:@"id" toAttribute:@"id"];
     [channelMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [channelMapping mapKeyPath:@"priority" toAttribute:@"priority"];
     
     RKManagedObjectMapping* programMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Program" inManagedObjectStore:objectManager.objectStore];
     programMapping.primaryKeyAttribute = @"id";

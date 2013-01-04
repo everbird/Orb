@@ -114,6 +114,8 @@
 		627872151657DCF900306128 /* Dev-Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Dev.xcconfig"; sourceTree = "<group>"; };
 		627872191657E4EB00306128 /* ProgramsBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramsBaseController.h; sourceTree = "<group>"; };
 		6278721A1657E4EB00306128 /* ProgramsBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramsBaseController.m; sourceTree = "<group>"; };
+		629A03BD169706040019435F /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		629A03BE169706040019435F /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +204,18 @@
 		627872181657E47700306128 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				62F373921640225C00E0F103 /* RevealRootController.h */,
+				62F373931640225C00E0F103 /* RevealRootController.m */,
+				62F373991640246100E0F103 /* SideBarTableViewController.h */,
+				62F3739A1640246100E0F103 /* SideBarTableViewController.m */,
+				6277C21A164FE4D4006119A9 /* ChannelsViewController.h */,
+				6277C21B164FE4D4006119A9 /* ChannelsViewController.m */,
+				62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */,
+				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
+				625F4B3516529371005B5A6A /* CurrentProgramsViewController.h */,
+				625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */,
+				625C7E7A163442A500665982 /* DetailViewController.h */,
+				625C7E7B163442A500665982 /* DetailViewController.m */,
 				627872191657E4EB00306128 /* ProgramsBaseController.h */,
 				6278721A1657E4EB00306128 /* ProgramsBaseController.m */,
 			);
@@ -248,18 +262,6 @@
 				62E6D02B1632EF7500106FBE /* ManagedModel */,
 				62E6D01A1632E92200106FBE /* Resources */,
 				62E6CFF51632E4B100106FBE /* Supporting Files */,
-				62F373921640225C00E0F103 /* RevealRootController.h */,
-				62F373931640225C00E0F103 /* RevealRootController.m */,
-				62F373991640246100E0F103 /* SideBarTableViewController.h */,
-				62F3739A1640246100E0F103 /* SideBarTableViewController.m */,
-				6277C21A164FE4D4006119A9 /* ChannelsViewController.h */,
-				6277C21B164FE4D4006119A9 /* ChannelsViewController.m */,
-				62E6D0031632E4B100106FBE /* ProgramListTableViewController.h */,
-				62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */,
-				625F4B3516529371005B5A6A /* CurrentProgramsViewController.h */,
-				625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */,
-				625C7E7A163442A500665982 /* DetailViewController.h */,
-				625C7E7B163442A500665982 /* DetailViewController.m */,
 			);
 			path = Orb;
 			sourceTree = "<group>";
@@ -286,7 +288,10 @@
 				62E6D0541633D9E000106FBE /* listbg.png */,
 				62E6D0551633D9E000106FBE /* listbg@2x.png */,
 				62E6D01C1632E94400106FBE /* dingdang.caf */,
+				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
 				62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */,
+				629A03BD169706040019435F /* Channel.h */,
+				629A03BE169706040019435F /* Channel.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -317,7 +322,6 @@
 				621AEFB8164D433000F70FC2 /* AppCommon.h */,
 				621AEFC0164E063B00F70FC2 /* AppDefines.h */,
 				620BBB111657D36200AB3E36 /* AppConfig.h */,
-				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
 				627872131657DBFB00306128 /* LocalConfig.h.tmp */,
 				627872141657DCAD00306128 /* LocalConfig.h */,
 			);

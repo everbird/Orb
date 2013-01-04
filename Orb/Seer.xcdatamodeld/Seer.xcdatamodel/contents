@@ -3,6 +3,7 @@
     <entity name="Channel" representedClassName="Channel" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="programs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Program" inverseName="channel" inverseEntity="Program" syncable="YES"/>
     </entity>
     <entity name="Program" representedClassName="Program" syncable="YES">
@@ -17,7 +18,7 @@
         <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="programs" inverseEntity="Channel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Channel" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Channel" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Program" positionX="160" positionY="192" width="128" height="180"/>
     </elements>
 </model>

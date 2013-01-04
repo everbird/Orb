@@ -2,8 +2,8 @@
 //  Channel.m
 //  Orb
 //
-//  Created by everbird on 10/21/12.
-//  Copyright (c) 2012 everbird. All rights reserved.
+//  Created by everbird on 1/4/13.
+//  Copyright (c) 2013 everbird. All rights reserved.
 //
 
 #import "Channel.h"
@@ -14,6 +14,7 @@
 
 @dynamic id;
 @dynamic name;
+@dynamic priority;
 @dynamic programs;
 
 @end

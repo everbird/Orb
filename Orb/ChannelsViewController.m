@@ -52,7 +52,7 @@
         cell = [[ChannelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     cell.channel = [appContext.allChannels objectAtIndex:indexPath.row];
-    cell.textLabel.text = cell.channel.name;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@[%d]", cell.channel.name, [cell.channel.priority intValue]];
     return cell;
 }
 

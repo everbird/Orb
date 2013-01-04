@@ -2,8 +2,8 @@
 //  Channel.h
 //  Orb
 //
-//  Created by everbird on 10/21/12.
-//  Copyright (c) 2012 everbird. All rights reserved.
+//  Created by everbird on 1/4/13.
+//  Copyright (c) 2013 everbird. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,6 +15,15 @@
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) Program *programs;
+@property (nonatomic, retain) NSNumber * priority;
+@property (nonatomic, retain) NSSet *programs;
+@end
+
+@interface Channel (CoreDataGeneratedAccessors)
+
+- (void)addProgramsObject:(Program *)value;
+- (void)removeProgramsObject:(Program *)value;
+- (void)addPrograms:(NSSet *)values;
+- (void)removePrograms:(NSSet *)values;
 
 @end

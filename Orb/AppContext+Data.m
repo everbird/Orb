@@ -138,7 +138,7 @@ NSString* const kAllChannels = @"kAllChannels";
 - (NSArray*)loadAllChannelsFromLocal
 {
     return [self loadData:[Channel class] FromLocalWithBlock:^(NSFetchRequest* request) {
-        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:YES];
+        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"priority" ascending:NO];
         [request setSortDescriptors:@[sort]];
     }];
 }
