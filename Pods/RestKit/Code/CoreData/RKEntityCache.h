@@ -5,6 +5,18 @@
 //  Created by Blake Watters on 5/2/12.
 //  Copyright (c) 2012 RestKit. All rights reserved.
 //
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
 
 #import <CoreData/CoreData.h>
 
@@ -36,50 +48,50 @@
 /**
  The managed object context with which the receiver is associated.
  */
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 
-///-----------------------------------------------------------------------------
-/// @name Caching Objects by Attribute
-///-----------------------------------------------------------------------------
+///------------------------------------
+/// @name Caching Objects by Attributes
+///------------------------------------
 
 /**
  Caches all instances of an entity using the value for an attribute as the cache key.
 
  @param entity The entity to cache all instances of.
- @param attributeName The attribute to cache the instances by.
+ @param attributeNames The attributes to cache the instances by.
  */
-- (void)cacheObjectsForEntity:(NSEntityDescription *)entity byAttribute:(NSString *)attributeName;
+- (void)cacheObjectsForEntity:(NSEntityDescription *)entity byAttributes:(NSArray *)attributeNames;
 
 /**
  Returns a Boolean value indicating if all instances of an entity have been cached by a given attribute name.
 
  @param entity The entity to check the cache status of.
- @param attributeName The attribute to check the cache status with.
+ @param attributeNames The attributes to check the cache status with.
  @return YES if the cache has been loaded with instances with the given attribute, else NO.
  */
-- (BOOL)isEntity:(NSEntityDescription *)entity cachedByAttribute:(NSString *)attributeName;
+- (BOOL)isEntity:(NSEntityDescription *)entity cachedByAttributes:(NSArray *)attributeNames;
 
 /**
  Retrieves the first cached instance of a given entity where the specified attribute matches the given value.
 
  @param entity The entity to search the cache for instances of.
- @param attributeName The attribute to search the cache for matches with.
- @param attributeValue The value of the attribute to return a match for.
+ @param attributeValues The attribute values return a match for.
+ @param context The managed object from which to retrieve the cached results.
  @return A matching managed object instance or nil.
  @raise NSInvalidArgumentException Raised if instances of the entity and attribute have not been cached.
  */
-- (NSManagedObject *)objectForEntity:(NSEntityDescription *)entity withAttribute:(NSString *)attributeName value:(id)attributeValue;
+- (NSManagedObject *)objectForEntity:(NSEntityDescription *)entity withAttributeValues:(NSDictionary *)attributeValues inContext:(NSManagedObjectContext *)context;
 
 /**
  Retrieves all cached instances of a given entity where the specified attribute matches the given value.
 
  @param entity The entity to search the cache for instances of.
- @param attributeName The attribute to search the cache for matches with.
- @param attributeValue The value of the attribute to return a match for.
+ @param attributeValues The attribute values return a match for.
+ @param context The managed object from which to retrieve the cached results.
  @return All matching managed object instances or nil.
  @raise NSInvalidArgumentException Raised if instances of the entity and attribute have not been cached.
  */
-- (NSArray *)objectsForEntity:(NSEntityDescription *)entity withAttribute:(NSString *)attributeName value:(id)attributeValue;
+- (NSSet *)objectsForEntity:(NSEntityDescription *)entity withAttributeValues:(NSDictionary *)attributeValues inContext:(NSManagedObjectContext *)context;
 
 ///-----------------------------------------------------------------------------
 // @name Accessing Underlying Caches
@@ -92,7 +104,7 @@
  @param attributeName  The attribute to retrieve the entity attribute cache object for.
  @return The entity attribute cache for the given entity and attribute, or nil if none was found.
  */
-- (RKEntityByAttributeCache *)attributeCacheForEntity:(NSEntityDescription *)entity attribute:(NSString *)attributeName;
+- (RKEntityByAttributeCache *)attributeCacheForEntity:(NSEntityDescription *)entity attributes:(NSArray *)attributeNames;
 
 /**
  Retrieves all entity attributes caches for a given entity.

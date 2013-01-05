@@ -21,10 +21,10 @@
 /**
  RestKit Logging is based on the LibComponentLogging framework
 
- @see lcl_config_components.h
- @see lcl_config_logger.h
+ @see lcl_config_components_RK.h
+ @see lcl_config_logger_RK.h
  */
-#import "lcl.h"
+#import "lcl_RK.h"
 
 /**
  RKLogComponent defines the active component within any given portion of RestKit
@@ -35,19 +35,19 @@
 
  The component can be undef'd and redefined to change the active logging component.
  */
-#define RKLogComponent lcl_cRestKit
+#define RKLogComponent RKlcl_cRestKit
 
 /**
  The logging macros. These macros will log to the currently active logging component
  at the log level identified in the name of the macro.
 
- For example, in the RKObjectMappingOperation class we would redefine the RKLogComponent:
+ For example, in the `RKMappingOperation` class we would redefine the RKLogComponent:
 
     #undef RKLogComponent
-    #define RKLogComponent lcl_cRestKitObjectMapping
+    #define RKLogComponent RKlcl_cRestKitObjectMapping
 
- The lcl_c prefix is the LibComponentLogging data structure identifying the logging component
- we want to target within this portion of the codebase. See lcl_config_component.h for reference.
+ The RKlcl_c prefix is the LibComponentLogging data structure identifying the logging component
+ we want to target within this portion of the codebase. See lcl_config_component_RK.h for reference.
 
  Having defined the logging component, invoking the logger via:
 
@@ -61,35 +61,35 @@
  than the level the message was logged at (in this case, Info).
  */
 #define RKLogCritical(...)                                                              \
-lcl_log(RKLogComponent, lcl_vCritical, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vCritical, @"" __VA_ARGS__)
 
 #define RKLogError(...)                                                                 \
-lcl_log(RKLogComponent, lcl_vError, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vError, @"" __VA_ARGS__)
 
 #define RKLogWarning(...)                                                               \
-lcl_log(RKLogComponent, lcl_vWarning, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vWarning, @"" __VA_ARGS__)
 
 #define RKLogInfo(...)                                                                  \
-lcl_log(RKLogComponent, lcl_vInfo, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vInfo, @"" __VA_ARGS__)
 
 #define RKLogDebug(...)                                                                 \
-lcl_log(RKLogComponent, lcl_vDebug, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vDebug, @"" __VA_ARGS__)
 
 #define RKLogTrace(...)                                                                 \
-lcl_log(RKLogComponent, lcl_vTrace, @"" __VA_ARGS__)
+RKlcl_log(RKLogComponent, RKlcl_vTrace, @"" __VA_ARGS__)
 
 /**
  Log Level Aliases
 
  These aliases simply map the log levels defined within LibComponentLogger to something more friendly
  */
-#define RKLogLevelOff       lcl_vOff
-#define RKLogLevelCritical  lcl_vCritical
-#define RKLogLevelError     lcl_vError
-#define RKLogLevelWarning   lcl_vWarning
-#define RKLogLevelInfo      lcl_vInfo
-#define RKLogLevelDebug     lcl_vDebug
-#define RKLogLevelTrace     lcl_vTrace
+#define RKLogLevelOff       RKlcl_vOff
+#define RKLogLevelCritical  RKlcl_vCritical
+#define RKLogLevelError     RKlcl_vError
+#define RKLogLevelWarning   RKlcl_vWarning
+#define RKLogLevelInfo      RKlcl_vInfo
+#define RKLogLevelDebug     RKlcl_vDebug
+#define RKLogLevelTrace     RKlcl_vTrace
 
 /**
  Alias the LibComponentLogger logging configuration method. Also ensures logging
@@ -106,8 +106,7 @@ lcl_log(RKLogComponent, lcl_vTrace, @"" __VA_ARGS__)
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelCritical);
  */
 #define RKLogConfigureByName(name, level)                                               \
-RKLogInitialize();                                                                      \
-lcl_configure_by_name(name, level);
+RKlcl_configure_by_name(name, level);
 
 /**
  Alias for configuring the LibComponentLogger logging component for the App. This
@@ -115,8 +114,7 @@ lcl_configure_by_name(name, level);
  their apps.
  */
 #define RKLogSetAppLoggingLevel(level)                                                  \
-RKLogInitialize();                                                                      \
-lcl_configure_by_name("App", level);
+RKlcl_configure_by_name("App", level);
 
 /**
  Temporarily changes the logging level for the specified component and executes the block. Any logging
@@ -125,8 +123,8 @@ lcl_configure_by_name("App", level);
  */
 #define RKLogToComponentWithLevelWhileExecutingBlock(_component, _level, _block)        \
     do {                                                                                \
-        int _currentLevel = _lcl_component_level[_component];                           \
-        lcl_configure_by_component(_component, _level);                                 \
+        int _currentLevel = _RKlcl_component_level[_component];                           \
+        RKlcl_configure_by_component(_component, _level);                                 \
         @try {                                                                          \
             _block();                                                                   \
         }                                                                               \
@@ -134,7 +132,7 @@ lcl_configure_by_name("App", level);
             @throw;                                                                     \
         }                                                                               \
         @finally {                                                                      \
-            lcl_configure_by_component(_component, _currentLevel);                      \
+            RKlcl_configure_by_component(_component, _currentLevel);                      \
         }                                                                               \
     } while (false);
 
@@ -179,21 +177,15 @@ lcl_configure_by_name("App", level);
 #endif
 
 /**
- Initialize the logging environment
- */
-void RKLogInitialize(void);
-
-
-/**
  Configure RestKit logging from environment variables.
  (Use Option + Command + R to set Environment Variables prior to run.)
 
  For example to configure the equivalent of setting the following in code:
  RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 
- Define an environment variable named RKLogLevel.RestKit.Network and set its value to "Trace"
+ Define an environment variable named 'RKLogLevel.RestKit.Network' and set its value to "Trace"
 
- See lcl_config_components.h for configurable RestKit logging components.
+ See lcl_config_components_RK.h for configurable RestKit logging components.
 
  Valid values are the following:
     Default  or 0
@@ -210,7 +202,18 @@ void RKLogConfigureFromEnvironment(void);
  Logs extensive information about an NSError generated as the results
  of a failed key-value validation error.
  */
-void RKLogValidationError(NSError *);
+void RKLogValidationError(NSError *error);
+
+/**
+ Logs extensive information an NSError generated as the result of a
+ failed Core Data interaction, such as the execution of a fetch request
+ or the saving of a managed object context.
+
+ The error will be logged to the RestKit/CoreData component with an
+ error level of RKLogLevelError regardless of the current logging context
+ at invocation time.
+ */
+void RKLogCoreDataError(NSError *error);
 
 /**
  Logs the value of an NSUInteger as a binary string. Useful when

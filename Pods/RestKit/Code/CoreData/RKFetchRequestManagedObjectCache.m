@@ -7,59 +7,81 @@
 //
 
 #import "RKFetchRequestManagedObjectCache.h"
-#import "NSManagedObject+ActiveRecord.h"
-#import "NSEntityDescription+RKAdditions.h"
 #import "RKLog.h"
-#import "RKObjectPropertyInspector.h"
-#import "RKObjectPropertyInspector+CoreData.h"
+#import "RKPropertyInspector.h"
+#import "RKPropertyInspector+CoreData.h"
+#import "RKObjectUtilities.h"
 
 // Set Logging Component
 #undef RKLogComponent
-#define RKLogComponent lcl_cRestKitCoreData
+#define RKLogComponent RKlcl_cRestKitCoreData
+
+/*
+ NOTE: At the moment this cache key assume that the structure of the values for each key in the `attributeValues` in constant
+ i.e. if you have `userID`, it will always be a single value, or `userIDs` will always be an array.
+ It will need to be reimplemented if changes in attribute values occur during the life of a single cache
+ */
+static NSString *RKPredicateCacheKeyForAttributes(NSArray *attributeNames)
+{
+    return [[attributeNames sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] componentsJoinedByString:@":"];
+}
+
+// NOTE: We build a dynamic format string here because `NSCompoundPredicate` does not support use of substiution variables
+static NSPredicate *RKPredicateWithSubsitutionVariablesForAttributeValues(NSDictionary *attributeValues)
+{
+    NSArray *attributeNames = [attributeValues allKeys];
+    NSMutableArray *formatFragments = [NSMutableArray arrayWithCapacity:[attributeNames count]];
+    [attributeValues enumerateKeysAndObjectsUsingBlock:^(NSString *attributeName, id value, BOOL *stop) {
+        NSString *formatFragment = RKObjectIsCollection(value)
+                                 ? [NSString stringWithFormat:@"%@ IN $%@", attributeName, attributeName]
+                                 : [NSString stringWithFormat:@"%@ = $%@", attributeName, attributeName];
+        [formatFragments addObject:formatFragment];
+    }];
+
+    return [NSPredicate predicateWithFormat:[formatFragments componentsJoinedByString:@" AND "]];
+}
+
+@interface RKFetchRequestManagedObjectCache ()
+@property (nonatomic, strong) NSCache *predicateCache;
+@end
 
 @implementation RKFetchRequestManagedObjectCache
 
-- (NSManagedObject *)findInstanceOfEntity:(NSEntityDescription *)entity
-                  withPrimaryKeyAttribute:(NSString *)primaryKeyAttribute
-                                    value:(id)primaryKeyValue
-                   inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+- (id)init
 {
+    self = [super init];
+    if (self) {
+        self.predicateCache = [NSCache new];
+    }
+    return self;
+}
+
+- (NSSet *)managedObjectsWithEntity:(NSEntityDescription *)entity
+                    attributeValues:(NSDictionary *)attributeValues
+             inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+
     NSAssert(entity, @"Cannot find existing managed object without a target class");
-    NSAssert(primaryKeyAttribute, @"Cannot find existing managed object instance without mapping that defines a primaryKeyAttribute");
-    NSAssert(primaryKeyValue, @"Cannot find existing managed object by primary key without a value");
-    NSAssert(managedObjectContext, @"Cannot find existing managed object with a context");
-
-    id searchValue = primaryKeyValue;
-    Class type = [[RKObjectPropertyInspector sharedInspector] typeForProperty:primaryKeyAttribute ofEntity:entity];
-    if (type && ([type isSubclassOfClass:[NSString class]] && NO == [primaryKeyValue isKindOfClass:[NSString class]])) {
-        searchValue = [NSString stringWithFormat:@"%@", primaryKeyValue];
-    } else if (type && ([type isSubclassOfClass:[NSNumber class]] && NO == [primaryKeyValue isKindOfClass:[NSNumber class]])) {
-        if ([primaryKeyValue isKindOfClass:[NSString class]]) {
-            searchValue = [NSNumber numberWithDouble:[(NSString *)primaryKeyValue doubleValue]];
-        }
+    NSAssert(attributeValues, @"Cannot retrieve cached objects without attribute values to identify them with.");
+    NSAssert(managedObjectContext, @"Cannot find existing managed object with a nil context");
+    
+    NSString *predicateCacheKey = RKPredicateCacheKeyForAttributes([attributeValues allKeys]);
+    NSPredicate *substitutionPredicate = [self.predicateCache objectForKey:predicateCacheKey];
+    if (! substitutionPredicate) {
+        substitutionPredicate = RKPredicateWithSubsitutionVariablesForAttributeValues(attributeValues);
+        [self.predicateCache setObject:substitutionPredicate forKey:predicateCacheKey];
     }
-
-    // Use cached predicate if primary key matches
-    NSPredicate *predicate = nil;
-    if ([entity.primaryKeyAttributeName isEqualToString:primaryKeyAttribute]) {
-        predicate = [entity predicateForPrimaryKeyAttributeWithValue:searchValue];
-    } else {
-        // Parse a predicate
-        predicate = [NSPredicate predicateWithFormat:@"%K = %@", primaryKeyAttribute, searchValue];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[entity name]];
+    fetchRequest.predicate = [substitutionPredicate predicateWithSubstitutionVariables:attributeValues];
+    NSError *error = nil;
+    NSArray *objects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (! objects) {
+        RKLogError(@"Failed to execute fetch request due to error: %@", error);
     }
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    fetchRequest.entity = entity;
-    fetchRequest.fetchLimit = 1;
-    fetchRequest.predicate = predicate;
-    NSArray *objects = [NSManagedObject executeFetchRequest:fetchRequest inContext:managedObjectContext];
     RKLogDebug(@"Found objects '%@' using fetchRequest '%@'", objects, fetchRequest);
-    [fetchRequest release];
 
-    NSManagedObject *object = nil;
-    if ([objects count] > 0) {
-        object = [objects objectAtIndex:0];
-    }
-    return object;
+    return [NSSet setWithArray:objects];
 }
 
 @end

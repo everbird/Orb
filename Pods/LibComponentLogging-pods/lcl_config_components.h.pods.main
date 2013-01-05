@@ -1,2 +1,4 @@
 #include "lcl_config_components.h.pods"
-#include "Pods/Headers/RestKit/lcl_config_components.h"
+#define _RKlcl_component _lcl_component
+#include "Pods/Headers/RestKit/RestKit/Support/lcl_config_components_RK.h"
+#undef _RKlcl_component

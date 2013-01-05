@@ -20,20 +20,11 @@
 
 #import "RKErrorMessage.h"
 
-
 @implementation RKErrorMessage
-
-@synthesize errorMessage = _errorMessage;
-
-- (void)dealloc
-{
-    [_errorMessage release];
-    [super dealloc];
-}
 
 - (NSString *)description
 {
-    return _errorMessage;
+    return self.errorMessage;
 }
 
 @end
