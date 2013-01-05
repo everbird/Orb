@@ -2,6 +2,7 @@
 PODS:
 - AFNetworking (1.1.0)
 - JASidePanels (0.0.2)
+- JSONKit (1.5pre)
 - LibComponentLogging-Core (1.3.1)
 - LibComponentLogging-LogFile (1.2.1):
   - LibComponentLogging-Core (>= 1.3.1)
@@ -28,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
 - JASidePanels (~> 0.0.2)
+- JSONKit (~> 1.5pre)
 - LibComponentLogging-Core
 - LibComponentLogging-LogFile
 - LibComponentLogging-pods
@@ -38,6 +40,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   JASidePanels: 79ba66b0fab9c94d857b21c5e08a6e53a1c602f1
+  JSONKit: 3d4708953ea7ae399a49777372d8b060a43ddd27
   LibComponentLogging-Core: 344f6045453ca28fa8f2909eb9624ec9d15ef256
   LibComponentLogging-LogFile: 2481eb031d43ce234f9e2111b1e9675eefd9502b
   LibComponentLogging-pods: 1d12de9ecebbab0ec5be2c63f6ab1cf30a5f1f27
