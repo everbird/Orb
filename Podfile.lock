@@ -10,6 +10,7 @@ PODS:
   - LibComponentLogging-Core
 - LibComponentLogging-qlog (1.1.1):
   - LibComponentLogging-Core (>= 1.2.1)
+- MagicalRecord (2.1.beta.1)
 - NSDate-Extensions (0.0.1)
 - RestKit (0.20.0pre6):
   - RestKit/Core (= 0.20.0pre6)
@@ -34,6 +35,7 @@ DEPENDENCIES:
 - LibComponentLogging-LogFile
 - LibComponentLogging-pods
 - LibComponentLogging-qlog
+- MagicalRecord (~> 2.1.beta.1)
 - NSDate-Extensions (~> 0.0.1)
 - RestKit (~> 0.20.0pre5)
 
@@ -45,6 +47,7 @@ SPEC CHECKSUMS:
   LibComponentLogging-LogFile: 2481eb031d43ce234f9e2111b1e9675eefd9502b
   LibComponentLogging-pods: 1d12de9ecebbab0ec5be2c63f6ab1cf30a5f1f27
   LibComponentLogging-qlog: c9e17b3bdafdff3a02c39d16a040b778c458e856
+  MagicalRecord: 586523b576a7b8e7d5a5de301f7ea3186f9d1101
   NSDate-Extensions: b78c2b3f363acdcd7b5d2547a6bef6656cd8ff70
   RestKit: ccca19640fcc3031f82ad4250c44061e2e2ddce7
   RestKit/Core: ccca19640fcc3031f82ad4250c44061e2e2ddce7
