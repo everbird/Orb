@@ -15,32 +15,29 @@
 - (RKObjectManager*)objectManager
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    RKURL* rkUrl = [RKURL URLWithString:SEER_API_BASE_URL];
-    objectManager.client.baseURL = rkUrl;
-//    objectManager.client.cachePolicy = RKRequestCachePolicyNone;
     return objectManager;
 }
 
-- (RKClient*)client
+- (AFHTTPClient*)client
 {
-    return self.objectManager.client;
+    return self.objectManager.HTTPClient;
 }
 
-- (RKRequestQueue*)requestQueue
+- (NSOperationQueue*)operationQueue
 {
-    return self.client.requestQueue;
+    return self.client.operationQueue;
 }
 
 - (void)suspend
 {
     NSLog(@"suspend");
-    self.requestQueue.suspended = YES;
+    [self.operationQueue setSuspended:YES];
 }
 
 - (void)unsuspend
 {
     NSLog(@"unsuspend");
-    self.requestQueue.suspended = NO;
+    [self.operationQueue setSuspended:NO];
 }
 
 @end

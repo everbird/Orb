@@ -13,7 +13,7 @@
 #import <objc/runtime.h>
 #import "Channel.h"
 
-@interface AppContext (Data) <RKObjectLoaderDelegate>
+@interface AppContext (Data)
 
 @property (nonatomic, strong) NSArray* allPrograms;
 @property (nonatomic, strong) NSArray* allChannels;
@@ -24,11 +24,9 @@
 - (void)fetchAllDataFromRemote;
 - (void)fetchAllChannelsFromRemote;
 - (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel;
-- (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel WithDelegate:(id)delegate;
 
 - (void)fetchCurrentProgramsFromRemote;
 - (void)fetchProgramsFromRemoteByDate:(NSDate*)date;
-- (void)fetchProgramsFromRemoteByDate:(NSDate*)date WithDelegate:(id)delegate;
 
 - (id)loadObject:(Class)class ById:(NSInteger)objId;
 - (Channel*)loadChannelById:(NSInteger)channelId;

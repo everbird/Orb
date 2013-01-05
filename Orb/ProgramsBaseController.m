@@ -56,7 +56,7 @@
     self.savedSearchTerm = [self.searchDisplayController.searchBar text];
     self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
     
-    [appContext.requestQueue cancelAllRequests];
+    [appContext.operationQueue cancelAllOperations];
 }
 
 - (void)didReceiveMemoryWarning

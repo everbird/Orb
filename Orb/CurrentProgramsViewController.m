@@ -13,7 +13,7 @@
 #import "DetailViewController.h"
 #import "ProgramCell.h"
 
-@interface CurrentProgramsViewController ()
+@interface CurrentProgramsViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
@@ -29,13 +29,24 @@
 
 - (void)loadObjectsFromLocal
 {
-    NSFetchRequest *request = [Program fetchRequest];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"channel.priority" ascending:NO];
-    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    request.sortDescriptors = @[descriptor];
     NSDate* now = [NSDate date];
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"startDate <= %@ AND endDate >= %@", now, now];
     [request setPredicate:predicate];
-    _programs = [Program objectsWithFetchRequest:request];
+    
+    NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                                                 sectionNameKeyPath:nil
+                                                                                                          cacheName:nil];
+    fetchedResultsController.delegate = self;
+    NSError *error = nil;
+    BOOL fetchSuccessful = [fetchedResultsController performFetch:&error];
+    
+    if (fetchSuccessful) {
+        _programs = fetchedResultsController.fetchedObjects;
+    }
 }
 
 #pragma mark - Table view data source

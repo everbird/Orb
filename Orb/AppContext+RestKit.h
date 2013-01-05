@@ -13,8 +13,8 @@
 @interface AppContext (RestKit)
 
 @property (nonatomic, readonly) RKObjectManager* objectManager;
-@property (nonatomic, readonly) RKClient* client;
-@property (nonatomic, readonly) RKRequestQueue* requestQueue;
+@property (nonatomic, readonly) AFHTTPClient* client;
+@property (nonatomic, readonly) NSOperationQueue* operationQueue;
 
 - (void)suspend;
 - (void)unsuspend;

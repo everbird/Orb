@@ -19,39 +19,78 @@
     // Override point for customization after application launch.
     
     // Setup for RestKit
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:SEER_API_BASE_URL];
-    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
-    NSString* databaseName = SEER_LOCAL_STORE;
-    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    NSURL *baseURL = [NSURL URLWithString:SEER_API_BASE_URL];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURL:baseURL];
     
-    RKManagedObjectMapping* channelMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Channel" inManagedObjectStore:objectManager.objectStore];
-    channelMapping.primaryKeyAttribute = @"id";
-    [channelMapping mapKeyPath:@"id" toAttribute:@"id"];
-    [channelMapping mapKeyPath:@"name" toAttribute:@"name"];
-    [channelMapping mapKeyPath:@"priority" toAttribute:@"priority"];
+    // Enable Activity Indicator Spinner
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    RKManagedObjectMapping* programMapping = [RKManagedObjectMapping mappingForEntityWithName:@"Program" inManagedObjectStore:objectManager.objectStore];
-    programMapping.primaryKeyAttribute = @"id";
-    [programMapping mapKeyPathsToAttributes:@"id", @"id",
-     @"name", @"name",
-     @"length", @"length",
-     @"datenum", @"datenum",
-     @"channel_id", @"channelId",
-     @"start_dt", @"startDate",
-     @"update_dt", @"updateDate",
-     @"end_dt", @"endDate",
-     nil];
-    [programMapping mapRelationship:@"channel" withMapping:channelMapping];
+    // Initialize managed object store
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    objectManager.managedObjectStore = managedObjectStore;
+    
+//    NSString* databaseName = SEER_LOCAL_STORE;
+//    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
+    
+    RKEntityMapping* channelMapping = [RKEntityMapping mappingForEntityForName:@"Channel" inManagedObjectStore:managedObjectStore];
+    channelMapping.identificationAttributes = @[@"id"];
+    [channelMapping addAttributeMappingsFromArray:@[@"id", @"name", @"priority"]];
+    
+    RKEntityMapping* programMapping = [RKEntityMapping mappingForEntityForName:@"Program" inManagedObjectStore:managedObjectStore];
+    programMapping.identificationAttributes = @[@"id"];
+    [programMapping addAttributeMappingsFromArray:@[@"id", @"name", @"length", @"datenum"]];
+    [programMapping addAttributeMappingsFromDictionary:@{
+         @"channel_id": @"channelId",
+         @"start_dt": @"startDate",
+         @"update_dt": @"updateDate",
+         @"end_dt": @"endDate",
+     }];
+    
+    [programMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"channel"
+                                                                                   toKeyPath:@"channel"
+                                                                                 withMapping:channelMapping]];
+    
     
     [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd'T'HH:mm:ss'Z'" inTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
     
-    [objectManager.mappingProvider registerMapping:channelMapping withRootKeyPath:@"objects"];
-    [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
+    RKResponseDescriptor *channelResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:channelMapping
+                                                                                              pathPattern:SEER_API_CHANNELS
+                                                                                                  keyPath:@"objects"
+                                                                                              statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+
+    RKResponseDescriptor *programResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:programMapping
+                                                                                              pathPattern:SEER_API_PROGRAMS
+                                                                                                  keyPath:@"objects"
+                                                                                              statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptorsFromArray:@[
+        channelResponseDescriptor,
+        programResponseDescriptor
+     ]];
     
-    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_PROGRAM];
-    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_CHANNELS];
+//    [objectManager.mappingProvider registerMapping:channelMapping withRootKeyPath:@"objects"];
+//    [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
+//    
+//    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_PROGRAM];
+//    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_CHANNELS];
+//    
+//    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:SEER_API_PROGRAMS];
     
-    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:SEER_API_PROGRAMS];
+    /**
+     Complete Core Data stack initialization
+     */
+    [managedObjectStore createPersistentStoreCoordinator];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:SEER_LOCAL_STORE];
+    NSError *error;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
+    
+    // Create the managed object contexts
+    [managedObjectStore createManagedObjectContexts];
+    
+    // Configure a managed object cache to ensure we do not create duplicate objects
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+    
     
     // Global context init
     appContext.rootVC = (UINavigationController*)self.window.rootViewController;

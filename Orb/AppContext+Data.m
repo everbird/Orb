@@ -13,6 +13,7 @@
 #import "AppConsts.h"
 #import <JSONKit/JSONKit.h>
 #import <NSDate-Extensions/NSDate-Utilities.h>
+#import <objc/runtime.h>
 
 @implementation AppContext (Data)
 
@@ -63,11 +64,16 @@ NSString* const kAllChannels = @"kAllChannels";
         @"op": @">=",
         @"val": dateString,
     };
-    NSString* resourcePath = [SEER_API_PROGRAMS stringByAppendingQueryParameters:@{@"q": query}];
-    [appContext.objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+    [appContext.objectManager getObjectsAtPath:SEER_API_PROGRAMS
+                                    parameters:@{@"q": query}
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           [self reloadAll];
+                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           NSLog(@"It Failed: %@", error);
+                                       }];
 }
 
-- (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel WithDelegate:(id)delegate
+- (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel
 {
     NSDate* today = [[NSDate date] dateAtStartOfDay];
     NSDateFormatter* f = [[NSDateFormatter alloc] init];
@@ -88,12 +94,13 @@ NSString* const kAllChannels = @"kAllChannels";
                                 };
     NSString* query = [queryDict JSONString];
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager loadObjectsAtResourcePath:[SEER_API_PROGRAMS stringByAppendingQueryParameters:@{@"q": query}] delegate:delegate];
-}
-
-- (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel
-{
-    [self fetchTodayDataFromRemoteByChannel:channel WithDelegate:self];
+    [objectManager getObjectsAtPath:SEER_API_PROGRAMS
+                         parameters:@{@"q": query}
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                [self reloadAll];
+                            } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                NSLog(@"It Failed: %@", error);
+                            }];
 }
 
 - (void)fetchCurrentProgramsFromRemote
@@ -103,11 +110,6 @@ NSString* const kAllChannels = @"kAllChannels";
 }
 
 - (void)fetchProgramsFromRemoteByDate:(NSDate*)date
-{
-    [self fetchProgramsFromRemoteByDate:date WithDelegate:self];
-}
-
-- (void)fetchProgramsFromRemoteByDate:(NSDate*)date WithDelegate:(id)delegate
 {
     NSDateFormatter* f = [[NSDateFormatter alloc] init];
     [f setDateFormat:SEER_API_DATE_FORMATE];
@@ -127,12 +129,25 @@ NSString* const kAllChannels = @"kAllChannels";
                                 };
     NSString* query = [queryDict JSONString];
     RKObjectManager *objectManager = [RKObjectManager sharedManager];
-    [objectManager loadObjectsAtResourcePath:[SEER_API_PROGRAMS stringByAppendingQueryParameters:@{@"q": query}] delegate:delegate];
+    [objectManager getObjectsAtPath:SEER_API_PROGRAMS
+                         parameters:@{@"q": query}
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                [self reloadAll];
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                NSLog(@"It Failed: %@", error);
+                            }];
 }
 
 - (void)fetchAllChannelsFromRemote
 {
-    [appContext.objectManager loadObjectsAtResourcePath:SEER_API_CHANNELS delegate:self];
+    [appContext.objectManager getObjectsAtPath:SEER_API_CHANNELS
+                                    parameters:nil
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           [self reloadAll];
+                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           NSLog(@"It Failed: %@", error);
+                                       }];
 }
 
 - (NSArray*)loadAllChannelsFromLocal
@@ -156,17 +171,47 @@ NSString* const kAllChannels = @"kAllChannels";
 
 - (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block
 {
-    NSFetchRequest *request = [class fetchRequest];
+    const char * class_name = class_getName(class);
+    NSString* className = [NSString stringWithCString:class_name encoding:NSUTF8StringEncoding];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:className];
+    
     block(request);
-    return [class objectsWithFetchRequest:request];
+    
+    NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                                                 sectionNameKeyPath:nil
+                                                                                                          cacheName:nil];
+    NSError *error = nil;
+    BOOL fetchSuccessful = [fetchedResultsController performFetch:&error];
+    
+    if (!fetchSuccessful) {
+        return nil;
+    }
+    return fetchedResultsController.fetchedObjects;
 }
 
 - (id)loadObject:(Class)class ById:(NSInteger)objId
 {
-    NSFetchRequest* request = [class fetchRequest];
+    const char * class_name = class_getName(class);
+    NSString* className = [NSString stringWithCString:class_name encoding:NSUTF8StringEncoding];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:className];
+    request.fetchLimit = 1;
+    
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"id == %d", objId];
     [request setPredicate:predicate];
-    return [class objectWithFetchRequest:request];
+    
+    NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                                                 sectionNameKeyPath:nil
+                                                                                                          cacheName:nil];
+    NSError *error = nil;
+    BOOL fetchSuccessful = [fetchedResultsController performFetch:&error];
+    
+    NSArray* result = fetchedResultsController.fetchedObjects;
+    if (!fetchSuccessful || [result count]==0) {
+        return nil;
+    }
+    return [result objectAtIndex:0];
 }
 
 - (Channel*)loadChannelById:(NSInteger)channelId
@@ -179,9 +224,7 @@ NSString* const kAllChannels = @"kAllChannels";
     return [self loadObject:[Program class] ById:programId];
 }
 
-#pragma mark RKObjectLoaderDelegate methods
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
+- (void)reloadAll
 {
     NSArray* programs = [self loadTodayProgramsFromLocal];
     self.allPrograms = programs;
@@ -189,16 +232,13 @@ NSString* const kAllChannels = @"kAllChannels";
     NSArray* channels = [self loadAllChannelsFromLocal];
     self.allChannels = channels;
     
-    NSDictionary* userInfo = @{
-        @"programs": programs,
-        @"channels": channels,
-    };
-    [[NSNotificationCenter defaultCenter] postNotificationName:N_RELOADED_DATA_REMOTE object:nil userInfo:userInfo];
-}
-
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
-{
-    NSLog(@"in didFailWithError: %@", error);
+    if (programs && channels) {
+        NSDictionary* userInfo = @{
+            @"programs": programs,
+            @"channels": channels,
+        };
+        [[NSNotificationCenter defaultCenter] postNotificationName:N_RELOADED_DATA_REMOTE object:nil userInfo:userInfo];
+    }
 }
 
 @end

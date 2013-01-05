@@ -16,7 +16,7 @@
 #import "DetailViewController.h"
 #import "ProgramCell.h"
 
-@interface ProgramListTableViewController ()
+@interface ProgramListTableViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
@@ -54,16 +54,26 @@
 
 - (void)loadObjectsFromLocal
 {
-    NSFetchRequest *request = [Program fetchRequest];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    request.sortDescriptors = @[descriptor];
     if (_channel) {
         NSDate* today = [[NSDate date] dateAtStartOfDay];
         
         NSPredicate* predicate = [NSPredicate predicateWithFormat:@"channelId == %d AND startDate >= %@", [_channel.id intValue], today];
         [request setPredicate:predicate];
     }
-    _programs = [Program objectsWithFetchRequest:request];
+    NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                                                 sectionNameKeyPath:nil
+                                                                                                          cacheName:nil];
+    fetchedResultsController.delegate = self;
+    NSError *error = nil;
+    BOOL fetchSuccessful = [fetchedResultsController performFetch:&error];
+    
+    if (fetchSuccessful) {
+        _programs = fetchedResultsController.fetchedObjects;
+    }
 }
 
 #pragma mark UITableViewDataSource methods
@@ -112,6 +122,13 @@
         ProgramCell* cell = [self makeCell:program ForTable:tableView];
         [self performSegueWithIdentifier:@"ProgramListToDetail" sender:cell];
     }
+}
+
+#pragma mark NSFetchedResultsControllerDelegate methods
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
 }
 
 @end
