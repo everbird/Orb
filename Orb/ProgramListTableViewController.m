@@ -10,6 +10,7 @@
 #import <RestKit/CoreData.h>
 #import <JSONKit/JSONKit.h>
 #import <NSDate-Extensions/NSDate-Utilities.h>
+#import <CoreData+MagicalRecord.h>
 
 #import "AppCommon.h"
 #import "Program.h"
@@ -54,7 +55,7 @@
 
 - (void)loadObjectsFromLocal
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
+    NSFetchRequest *request = [Program MR_createFetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
     request.sortDescriptors = @[descriptor];
     if (_channel) {

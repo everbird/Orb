@@ -8,6 +8,7 @@
 
 #import "CurrentProgramsViewController.h"
 
+#import <CoreData+MagicalRecord.h>
 #import "AppCommon.h"
 #import "Program.h"
 #import "DetailViewController.h"
@@ -29,7 +30,7 @@
 
 - (void)loadObjectsFromLocal
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
+    NSFetchRequest *request = [Program MR_createFetchRequest];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"channel.priority" ascending:NO];
     request.sortDescriptors = @[descriptor];
     NSDate* now = [NSDate date];

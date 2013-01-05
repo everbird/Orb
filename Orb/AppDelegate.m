@@ -91,6 +91,7 @@
     // Configure a managed object cache to ensure we do not create duplicate objects
     managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
     
+    [MagicalRecord setupCoreDataStack];
     
     // Global context init
     appContext.rootVC = (UINavigationController*)self.window.rootViewController;
