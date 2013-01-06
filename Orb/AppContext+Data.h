@@ -22,6 +22,7 @@
 - (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block;
 
 - (void)fetchAllDataFromRemote;
+- (void)syncAllDataFromRemote;
 - (void)fetchAllChannelsFromRemote;
 - (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel;
 

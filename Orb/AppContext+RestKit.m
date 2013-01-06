@@ -12,10 +12,29 @@
 
 @implementation AppContext (RestKit)
 
+@dynamic syncObjectManager;
+
+NSString* const kSyncObjectManager = @"kSyncObjectManager";
+
 - (RKObjectManager*)objectManager
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     return objectManager;
+}
+
+- (void)setSyncObjectManager:(RKObjectManager *)syncObjectManager
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kSyncObjectManager), syncObjectManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (RKObjectManager*)syncObjectManager
+{
+    id obj = objc_getAssociatedObject(self, (__bridge const void *)(kSyncObjectManager));
+    if (!obj) {
+        obj = [self loadTodayProgramsFromLocal];
+        [self setSyncObjectManager:obj];
+    }
+    return obj;
 }
 
 - (AFHTTPClient*)client

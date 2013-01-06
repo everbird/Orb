@@ -13,6 +13,7 @@
 @interface AppContext (RestKit)
 
 @property (nonatomic, readonly) RKObjectManager* objectManager;
+@property (nonatomic, strong) RKObjectManager* syncObjectManager;
 @property (nonatomic, readonly) AFHTTPClient* client;
 @property (nonatomic, readonly) NSOperationQueue* operationQueue;
 

@@ -85,7 +85,8 @@
     
     if ([category isEqualToString:@"sync"]) {
         category = @"channels";
-        [appContext fetchAllDataFromRemote];
+//        [appContext fetchAllDataFromRemote];
+        [appContext syncAllDataFromRemote];
     }
 
     RevealRootController* vc = (RevealRootController*)appContext.rootVC;

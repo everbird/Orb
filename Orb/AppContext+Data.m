@@ -73,6 +73,26 @@ NSString* const kAllChannels = @"kAllChannels";
                                        }];
 }
 
+- (void)syncAllDataFromRemote
+{
+    NSDate* today = [[NSDate date] dateAtStartOfDay];
+    NSDateFormatter* f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:SEER_API_DATE_FORMATE];
+    NSString* dateString = [f stringFromDate:today];
+    NSDictionary* query = @{
+        @"name": @"start_dt",
+        @"op": @">=",
+        @"val": dateString,
+    };
+    [appContext.syncObjectManager getObjectsAtPath:SEER_API_PROGRAMS
+                                    parameters:@{@"q": query}
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           [self reloadAll];
+                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           NSLog(@"It Failed: %@", error);
+                                       }];
+}
+
 - (void)fetchTodayDataFromRemoteByChannel:(Channel*)channel
 {
     NSDate* today = [[NSDate date] dateAtStartOfDay];

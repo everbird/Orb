@@ -30,9 +30,6 @@
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
     
-//    NSString* databaseName = SEER_LOCAL_STORE;
-//    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName];
-    
     RKEntityMapping* channelMapping = [RKEntityMapping mappingForEntityForName:@"Channel" inManagedObjectStore:managedObjectStore];
     channelMapping.identificationAttributes = @[@"id"];
     [channelMapping addAttributeMappingsFromArray:@[@"id", @"name", @"priority"]];
@@ -68,14 +65,6 @@
         programResponseDescriptor
      ]];
     
-//    [objectManager.mappingProvider registerMapping:channelMapping withRootKeyPath:@"objects"];
-//    [objectManager.mappingProvider registerMapping:programMapping withRootKeyPath:@"objects"];
-//    
-//    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_PROGRAM];
-//    [objectManager.mappingProvider setObjectMapping:channelMapping forResourcePathPattern:SEER_API_CHANNELS];
-//    
-//    [objectManager.mappingProvider setObjectMapping:programMapping forResourcePathPattern:SEER_API_PROGRAMS];
-    
     /**
      Complete Core Data stack initialization
      */
@@ -91,10 +80,19 @@
     // Configure a managed object cache to ensure we do not create duplicate objects
     managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
     
+    // Setup MagicalRecord
     [MagicalRecord setupCoreDataStack];
     
     // Global context init
     appContext.rootVC = (UINavigationController*)self.window.rootViewController;
+    
+    RKObjectManager* syncObjectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    syncObjectManager.managedObjectStore = managedObjectStore;
+    [syncObjectManager addResponseDescriptorsFromArray:@[
+        channelResponseDescriptor,
+        programResponseDescriptor
+     ]];
+    appContext.syncObjectManager = syncObjectManager;
     
     return YES;
 }
