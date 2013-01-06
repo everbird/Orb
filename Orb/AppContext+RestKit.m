@@ -15,6 +15,7 @@
 @dynamic syncObjectManager;
 
 NSString* const kSyncObjectManager = @"kSyncObjectManager";
+NSString* const kImporter= @"kImporter";
 
 - (RKObjectManager*)objectManager
 {
@@ -29,12 +30,17 @@ NSString* const kSyncObjectManager = @"kSyncObjectManager";
 
 - (RKObjectManager*)syncObjectManager
 {
-    id obj = objc_getAssociatedObject(self, (__bridge const void *)(kSyncObjectManager));
-    if (!obj) {
-        obj = [self loadTodayProgramsFromLocal];
-        [self setSyncObjectManager:obj];
-    }
-    return obj;
+    return objc_getAssociatedObject(self, (__bridge const void *)(kSyncObjectManager));
+}
+
+- (RKManagedObjectImporter*)importer
+{
+    return objc_getAssociatedObject(self, (__bridge const void *)(kImporter));
+}
+
+- (void)setImporter:(RKManagedObjectImporter *)importer
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kImporter), importer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (AFHTTPClient*)client

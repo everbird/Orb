@@ -16,6 +16,7 @@
 @property (nonatomic, strong) RKObjectManager* syncObjectManager;
 @property (nonatomic, readonly) AFHTTPClient* client;
 @property (nonatomic, readonly) NSOperationQueue* operationQueue;
+@property (nonatomic, strong) RKManagedObjectImporter* importer;
 
 - (void)suspend;
 - (void)unsuspend;

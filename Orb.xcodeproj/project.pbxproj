@@ -58,6 +58,8 @@
 		627872171657DCF900306128 /* Dev-Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 627872151657DCF900306128 /* Dev-Dev.xcconfig */; };
 		6278721B1657E4EB00306128 /* ProgramsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278721A1657E4EB00306128 /* ProgramsBaseController.m */; };
 		6278721C1657E4EB00306128 /* ProgramsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278721A1657E4EB00306128 /* ProgramsBaseController.m */; };
+		62C2BF721699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
+		62C2BF731699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
 		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
@@ -116,6 +118,7 @@
 		6278721A1657E4EB00306128 /* ProgramsBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramsBaseController.m; sourceTree = "<group>"; };
 		629A03BD169706040019435F /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		629A03BE169706040019435F /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		62C2BF711699CA8500AEF41C /* objects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
 		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +284,7 @@
 		62E6D01A1632E92200106FBE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				62C2BF711699CA8500AEF41C /* objects.json */,
 				62E6D0501633D9E000106FBE /* BG.png */,
 				62E6D0511633D9E000106FBE /* BG@2x.png */,
 				62E6D0521633D9E000106FBE /* Default.png */,
@@ -413,6 +417,7 @@
 				620BBB3D1657D98400AB3E36 /* Dev-LocalDev.xcconfig in Resources */,
 				620BBB3E1657D98400AB3E36 /* Release.xcconfig in Resources */,
 				627872171657DCF900306128 /* Dev-Dev.xcconfig in Resources */,
+				62C2BF731699CA8500AEF41C /* objects.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +439,7 @@
 				620BBB151657D90E00AB3E36 /* Dev-LocalDev.xcconfig in Resources */,
 				620BBB171657D93600AB3E36 /* Release.xcconfig in Resources */,
 				627872161657DCF900306128 /* Dev-Dev.xcconfig in Resources */,
+				62C2BF721699CA8500AEF41C /* objects.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
