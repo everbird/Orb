@@ -63,6 +63,7 @@
 		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		62C8BD3E16AD95C100601849 /* AppContext+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8BD3D16AD95C100601849 /* AppContext+Download.m */; };
 		62C8BD3F16AD95C100601849 /* AppContext+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8BD3D16AD95C100601849 /* AppContext+Download.m */; };
+		62C8BD5516ADC17500601849 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -125,6 +126,7 @@
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62C8BD3C16AD95C100601849 /* AppContext+Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+Download.h"; sourceTree = "<group>"; };
 		62C8BD3D16AD95C100601849 /* AppContext+Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+Download.m"; sourceTree = "<group>"; };
+		62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C8BD5516ADC17500601849 /* libz.1.2.5.dylib in Frameworks */,
 				62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */,
 				62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */,
 				62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */,
@@ -232,6 +235,7 @@
 		62E6CFDF1632E4B000106FBE = {
 			isa = PBXGroup;
 			children = (
+				62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */,
 				62E6CFF41632E4B100106FBE /* Orb */,
 				62E6CFED1632E4B100106FBE /* Frameworks */,
 				62E6CFEB1632E4B100106FBE /* Products */,

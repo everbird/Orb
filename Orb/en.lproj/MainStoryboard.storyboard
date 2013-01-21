@@ -241,27 +241,20 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <progressView opaque="NO" contentMode="scaleToFill" id="QaG-B0-lDe">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="9"/>
+                                    <rect key="frame" x="2" y="2" width="250" height="9"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </progressView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3l1-ep-MYB">
-                                    <rect key="frame" x="20" y="17" width="80" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y55-pL-nql">
-                                    <rect key="frame" x="108" y="17" width="98" height="21"/>
+                                    <rect key="frame" x="20" y="17" width="181" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dph-pe-Bcr">
-                                    <rect key="frame" x="214" y="17" width="42" height="21"/>
+                                    <rect key="frame" x="209" y="17" width="43" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -288,7 +281,6 @@
                         <outlet property="currentSizeLabel" destination="3l1-ep-MYB" id="gpt-ev-un7"/>
                         <outlet property="progressLabel" destination="dph-pe-Bcr" id="Cor-nJ-ZMi"/>
                         <outlet property="progressView" destination="QaG-B0-lDe" id="xvX-lY-PSH"/>
-                        <outlet property="totalSizeLabel" destination="y55-pL-nql" id="4w6-Jy-zMC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRQ-WF-8Fh" userLabel="First Responder" sceneMemberID="firstResponder"/>

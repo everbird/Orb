@@ -14,6 +14,5 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentSizeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalSizeLabel;
 
 @end
