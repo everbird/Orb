@@ -29,6 +29,7 @@ PODS:
 - RestKit/ObjectMapping (0.20.0pre6)
 - RestKit/Support (0.20.0pre6)
 - SOCKit (1.1)
+- SSZipArchive (0.2.2)
 
 DEPENDENCIES:
 - AFDownloadRequestOperation (~> 0.0.1)
@@ -41,6 +42,7 @@ DEPENDENCIES:
 - MagicalRecord (~> 2.1.beta.1)
 - NSDate-Extensions (~> 0.0.1)
 - RestKit (~> 0.20.0pre5)
+- SSZipArchive (~> 0.2.2)
 
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 80e58e0431e5f03389faf98d98bc25135e3c55fa
@@ -60,5 +62,6 @@ SPEC CHECKSUMS:
   RestKit/ObjectMapping: ccca19640fcc3031f82ad4250c44061e2e2ddce7
   RestKit/Support: ccca19640fcc3031f82ad4250c44061e2e2ddce7
   SOCKit: 179515c1a621dd5652a60e9be02ea4adcd25bc9b
+  SSZipArchive: 3f65e9eebeff14eee382cd251c629306581bbc2d
 
 COCOAPODS: 0.16.0
