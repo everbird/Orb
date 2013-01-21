@@ -61,6 +61,8 @@
 		62C2BF721699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
 		62C2BF731699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
 		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
+		62C8BD3E16AD95C100601849 /* AppContext+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8BD3D16AD95C100601849 /* AppContext+Download.m */; };
+		62C8BD3F16AD95C100601849 /* AppContext+Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8BD3D16AD95C100601849 /* AppContext+Download.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -121,6 +123,8 @@
 		62C2BF711699CA8500AEF41C /* objects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
 		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		62C8BD3C16AD95C100601849 /* AppContext+Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+Download.h"; sourceTree = "<group>"; };
+		62C8BD3D16AD95C100601849 /* AppContext+Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+Download.m"; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -318,6 +322,8 @@
 				62E6CFFE1632E4B100106FBE /* AppDelegate.m */,
 				62EB60DF164944EC005EA3C0 /* AppContext.h */,
 				62EB60E0164944EC005EA3C0 /* AppContext.m */,
+				62C8BD3C16AD95C100601849 /* AppContext+Download.h */,
+				62C8BD3D16AD95C100601849 /* AppContext+Download.m */,
 				621AEFB0164D419400F70FC2 /* AppContext+Data.h */,
 				621AEFB1164D419400F70FC2 /* AppContext+Data.m */,
 				621AEFB4164D425400F70FC2 /* AppContext+RestKit.h */,
@@ -499,6 +505,7 @@
 				620BBB2A1657D98400AB3E36 /* CurrentProgramsViewController.m in Sources */,
 				620BBB2B1657D98400AB3E36 /* Program.m in Sources */,
 				6278721C1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
+				62C8BD3F16AD95C100601849 /* AppContext+Download.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +531,7 @@
 				625F4B3716529371005B5A6A /* CurrentProgramsViewController.m in Sources */,
 				62C893EB1652A2BE0093017C /* Program.m in Sources */,
 				6278721B1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
+				62C8BD3E16AD95C100601849 /* AppContext+Download.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

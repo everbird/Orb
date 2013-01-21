@@ -85,8 +85,22 @@
     
     if ([category isEqualToString:@"sync"]) {
         category = @"channels";
-//        [appContext fetchAllDataFromRemote];
-        [appContext syncAllDataFromRemote];
+        [appContext downloadByDatenumber:@"20130114" WithBlock:^(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
+            float percentDone = totalBytesReadForFile/(float)totalBytesExpectedToReadForFile;
+            
+            self.progressView.progress = percentDone;
+            self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",percentDone*100];
+            
+            self.currentSizeLabel.text = [NSString stringWithFormat:@"CUR : %lli M",totalBytesReadForFile/1024/1024];
+            self.totalSizeLabel.text = [NSString stringWithFormat:@"TOTAL : %lli M",totalBytesExpectedToReadForFile/1024/1024];
+            
+            NSLog(@"------%f",percentDone);
+            NSLog(@"Operation%i: bytesRead: %d", 1, bytesRead);
+            NSLog(@"Operation%i: totalBytesRead: %lld", 1, totalBytesRead);
+            NSLog(@"Operation%i: totalBytesExpected: %lld", 1, totalBytesExpected);
+            NSLog(@"Operation%i: totalBytesReadForFile: %lld", 1, totalBytesReadForFile);
+            NSLog(@"Operation%i: totalBytesExpectedToReadForFile: %lld", 1, totalBytesExpectedToReadForFile);
+        }];
     }
 
     RevealRootController* vc = (RevealRootController*)appContext.rootVC;
@@ -94,4 +108,11 @@
     vc.centerPanel = [storyboard instantiateViewControllerWithIdentifier:category];
 }
 
+- (void)viewDidUnload {
+    [self setProgressView:nil];
+    [self setProgressLabel:nil];
+    [self setCurrentSizeLabel:nil];
+    [self setTotalSizeLabel:nil];
+    [super viewDidUnload];
+}
 @end
