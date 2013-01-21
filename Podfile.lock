@@ -1,5 +1,7 @@
 
 PODS:
+- AFDownloadRequestOperation (0.0.1):
+  - AFNetworking (HEAD)
 - AFNetworking (1.1.0)
 - JASidePanels (0.0.2)
 - JSONKit (1.5pre)
@@ -10,7 +12,7 @@ PODS:
   - LibComponentLogging-Core
 - LibComponentLogging-qlog (1.1.1):
   - LibComponentLogging-Core (>= 1.2.1)
-- MagicalRecord (2.1.beta.1)
+- MagicalRecord (2.1)
 - NSDate-Extensions (0.0.1)
 - RestKit (0.20.0pre6):
   - RestKit/Core (= 0.20.0pre6)
@@ -29,6 +31,7 @@ PODS:
 - SOCKit (1.1)
 
 DEPENDENCIES:
+- AFDownloadRequestOperation (~> 0.0.1)
 - JASidePanels (~> 0.0.2)
 - JSONKit (~> 1.5pre)
 - LibComponentLogging-Core
@@ -40,6 +43,7 @@ DEPENDENCIES:
 - RestKit (~> 0.20.0pre5)
 
 SPEC CHECKSUMS:
+  AFDownloadRequestOperation: 80e58e0431e5f03389faf98d98bc25135e3c55fa
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   JASidePanels: 79ba66b0fab9c94d857b21c5e08a6e53a1c602f1
   JSONKit: 3d4708953ea7ae399a49777372d8b060a43ddd27
@@ -47,7 +51,7 @@ SPEC CHECKSUMS:
   LibComponentLogging-LogFile: 2481eb031d43ce234f9e2111b1e9675eefd9502b
   LibComponentLogging-pods: 1d12de9ecebbab0ec5be2c63f6ab1cf30a5f1f27
   LibComponentLogging-qlog: c9e17b3bdafdff3a02c39d16a040b778c458e856
-  MagicalRecord: 586523b576a7b8e7d5a5de301f7ea3186f9d1101
+  MagicalRecord: aedbebe987d02d1215718a904c93d7965e48e398
   NSDate-Extensions: b78c2b3f363acdcd7b5d2547a6bef6656cd8ff70
   RestKit: ccca19640fcc3031f82ad4250c44061e2e2ddce7
   RestKit/Core: ccca19640fcc3031f82ad4250c44061e2e2ddce7

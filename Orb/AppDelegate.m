@@ -94,7 +94,6 @@
      ]];
     appContext.syncObjectManager = syncObjectManager;
     
-//    RKManagedObjectImporter* importer = [[RKManagedObjectImporter alloc] initWithManagedObjectModel:managedObjectModel storePath:SEER_LOCAL_STORE];
     RKManagedObjectImporter* importer = [[RKManagedObjectImporter alloc] initWithPersistentStore:persistentStore];
     appContext.importer = importer;
     
@@ -104,11 +103,8 @@
                                          withMapping:programMapping
                                              keyPath:@"objects"
                                                error:&importerError];
-    NSLog(@"importerError: %@", importerError);
     NSError* finishError;
     BOOL finish = [appContext.importer finishImporting:&finishError];
-    NSLog(@"finishError: %@", finishError);
-    NSLog(@"finish: %@", finish? @"YES": @"NO");
     
     return YES;
 }
