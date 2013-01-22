@@ -13,7 +13,6 @@
 #import "AppContext.h"
 #import "AppContext+RestKit.h"
 #import "AppContext+Data.h"
-#import "AppContext+Download.h"
 #import "AppConsts.h"
 #import "AppDefines.h"
 

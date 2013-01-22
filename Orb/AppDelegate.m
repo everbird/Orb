@@ -96,15 +96,7 @@
     
     RKManagedObjectImporter* importer = [[RKManagedObjectImporter alloc] initWithPersistentStore:persistentStore];
     appContext.importer = importer;
-    
-    NSError* importerError;
-    NSString* jsonFilePath = [[NSBundle mainBundle] pathForResource:@"objects" ofType:@"json"];
-    [appContext.importer importObjectsFromItemAtPath:jsonFilePath
-                                         withMapping:programMapping
-                                             keyPath:@"objects"
-                                               error:&importerError];
-    NSError* finishError;
-    BOOL finish = [appContext.importer finishImporting:&finishError];
+    appContext.programMapping = programMapping;
     
     return YES;
 }

@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) AFHTTPClient* client;
 @property (nonatomic, readonly) NSOperationQueue* operationQueue;
 @property (nonatomic, strong) RKManagedObjectImporter* importer;
+@property (nonatomic, strong) RKEntityMapping* programMapping;
 
 - (void)suspend;
 - (void)unsuspend;

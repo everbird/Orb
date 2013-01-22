@@ -12,6 +12,7 @@
 #import "AppCommon.h"
 
 #import "RevealRootController.h"
+#import "DownloadManager.h"
 
 @interface SideBarTableViewController ()
 
@@ -85,7 +86,11 @@
     
     if ([category isEqualToString:@"sync"]) {
         category = @"channels";
-        [appContext downloadByDatenumber:@"20130114" WithBlock:^(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
+        NSDateFormatter* f = [[NSDateFormatter alloc] init];
+        [f setDateFormat:@"yyyyMMdd"];
+        NSString* datenum = [f stringFromDate:[NSDate date]];
+        
+        [DownloadManager downloadByDatenumber:datenum WithBlock:^(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
             float percentDone = totalBytesReadForFile/(float)totalBytesExpectedToReadForFile;
             
             self.progressView.progress = percentDone;

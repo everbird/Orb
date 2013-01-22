@@ -1,19 +1,21 @@
 //
-//  AppContext+Download.m
+//  DownloadManager.m
 //  Orb
 //
-//  Created by everbird on 1/21/13.
+//  Created by everbird on 1/23/13.
 //  Copyright (c) 2013 everbird. All rights reserved.
 //
 
-#import "AppContext+Download.h"
+#import "DownloadManager.h"
 
 #import <AFDownloadRequestOperation/AFDownloadRequestOperation.h>
 #import <SSZipArchive/SSZipArchive.h>
 
-@implementation AppContext (Download)
+#import "AppContext+RestKit.h"
 
-- (void)downloadByDatenumber:(NSString*)datenumber WithBlock:(void (^)(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile))block
+@implementation DownloadManager
+
++ (void)downloadByDatenumber:(NSString*)datenumber WithBlock:(void (^)(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile))block
 {
     NSString* tempDir = NSTemporaryDirectory();
     NSString *urlStr = [NSString stringWithFormat:@"http://seer.everbird.net/packages/daily-programs-%@.json.gz", datenumber];
@@ -33,6 +35,16 @@
         NSData* targetData = [self uncompressZippedData:sourceData];
         
         [targetData writeToFile:dest atomically:YES];
+        
+        NSError* importerError;
+        NSString* jsonFilePath = dest;
+        [appContext.importer importObjectsFromItemAtPath:jsonFilePath
+                                             withMapping:appContext.programMapping
+                                                 keyPath:@"objects"
+                                                   error:&importerError];
+        NSError* finishError;
+        BOOL finish = [appContext.importer finishImporting:&finishError];
+        NSLog(@"Finish: %d, Import error: %@", finish, finishError);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -41,7 +53,7 @@
     [operation start];
 }
 
--(NSData *)uncompressZippedData:(NSData *)compressedData
++ (NSData *)uncompressZippedData:(NSData *)compressedData
 {
     
     if ([compressedData length] == 0) return compressedData;

@@ -13,9 +13,11 @@
 @implementation AppContext (RestKit)
 
 @dynamic syncObjectManager;
+@dynamic programMapping;
 
 NSString* const kSyncObjectManager = @"kSyncObjectManager";
 NSString* const kImporter= @"kImporter";
+NSString* const kProgramMapping = @"kProgramMapping";
 
 - (RKObjectManager*)objectManager
 {
@@ -41,6 +43,20 @@ NSString* const kImporter= @"kImporter";
 - (void)setImporter:(RKManagedObjectImporter *)importer
 {
     objc_setAssociatedObject(self, (__bridge const void *)(kImporter), importer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (RKEntityMapping*)programMapping
+{
+    id obj = objc_getAssociatedObject(self, (__bridge const void *)(kProgramMapping));
+    if (!obj) {
+        [self setProgramMapping:obj];
+    }
+    return obj;
+}
+
+- (void)setProgramMapping:(RKEntityMapping *)programMapping
+{
+    objc_setAssociatedObject(self, (__bridge const void *)(kProgramMapping), programMapping, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (AFHTTPClient*)client
