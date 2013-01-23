@@ -84,27 +84,31 @@
     NSString* category = [_menuItems objectAtIndex:indexPath.row];
     NSLog(@"selected: %@", category);
     
+    NSInteger packageCount = 8;
     if ([category isEqualToString:@"sync"]) {
         category = @"channels";
         NSDateFormatter* f = [[NSDateFormatter alloc] init];
         [f setDateFormat:@"yyyyMMdd"];
-        NSString* datenum = [f stringFromDate:[NSDate date]];
+        for (int i=0; i<packageCount; i++) {
+            NSDate* day = [[NSDate date] dateByAddingTimeInterval:60*60*24*i];
+            NSString* datenum = [f stringFromDate:day];
+            [DownloadManager downloadByDatenumber:datenum WithBlock:^(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
+                float percentDone = totalBytesReadForFile/(float)totalBytesExpectedToReadForFile;
+                
+                self.progressView.progress = percentDone;
+                self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",percentDone*100];
+                
+                self.currentSizeLabel.text = [NSString stringWithFormat:@"[%d/%d]|(%lli/%lli) K", i+1, packageCount, totalBytesReadForFile/1024, totalBytesExpectedToReadForFile/1024];
+                
+                NSLog(@"------%f",percentDone);
+                NSLog(@"Operation%i: bytesRead: %d", 1, bytesRead);
+                NSLog(@"Operation%i: totalBytesRead: %lld", 1, totalBytesRead);
+                NSLog(@"Operation%i: totalBytesExpected: %lld", 1, totalBytesExpected);
+                NSLog(@"Operation%i: totalBytesReadForFile: %lld", 1, totalBytesReadForFile);
+                NSLog(@"Operation%i: totalBytesExpectedToReadForFile: %lld", 1, totalBytesExpectedToReadForFile);
+            }];
+        }
         
-        [DownloadManager downloadByDatenumber:datenum WithBlock:^(NSInteger bytesRead, long long totalBytesRead, long long totalBytesExpected, long long totalBytesReadForFile, long long totalBytesExpectedToReadForFile) {
-            float percentDone = totalBytesReadForFile/(float)totalBytesExpectedToReadForFile;
-            
-            self.progressView.progress = percentDone;
-            self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",percentDone*100];
-            
-            self.currentSizeLabel.text = [NSString stringWithFormat:@"(%lli/%lli) K", totalBytesReadForFile/1024, totalBytesExpectedToReadForFile/1024];
-            
-            NSLog(@"------%f",percentDone);
-            NSLog(@"Operation%i: bytesRead: %d", 1, bytesRead);
-            NSLog(@"Operation%i: totalBytesRead: %lld", 1, totalBytesRead);
-            NSLog(@"Operation%i: totalBytesExpected: %lld", 1, totalBytesExpected);
-            NSLog(@"Operation%i: totalBytesReadForFile: %lld", 1, totalBytesReadForFile);
-            NSLog(@"Operation%i: totalBytesExpectedToReadForFile: %lld", 1, totalBytesExpectedToReadForFile);
-        }];
         return;
     }
 
