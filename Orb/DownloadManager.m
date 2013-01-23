@@ -12,6 +12,7 @@
 #import <SSZipArchive/SSZipArchive.h>
 
 #import "AppContext+RestKit.h"
+#import "AppContext+Data.h"
 
 @implementation DownloadManager
 
@@ -36,15 +37,20 @@
         
         [targetData writeToFile:dest atomically:YES];
         
-        NSError* importerError;
-        NSString* jsonFilePath = dest;
-        [appContext.importer importObjectsFromItemAtPath:jsonFilePath
-                                             withMapping:appContext.programMapping
-                                                 keyPath:@"objects"
-                                                   error:&importerError];
-        NSError* finishError;
-        BOOL finish = [appContext.importer finishImporting:&finishError];
-        NSLog(@"Finish: %d, Import error: %@", finish, finishError);
+        if ([[NSFileManager defaultManager] fileExistsAtPath:dest]) {
+            //Clean data first
+            [appContext deleteByDatenum:datenumber];
+            
+            // Start import data
+            NSError* importerError;
+            [appContext.importer importObjectsFromItemAtPath:dest
+                                                 withMapping:appContext.programMapping
+                                                     keyPath:@"objects"
+                                                       error:&importerError];
+            NSError* finishError;
+            BOOL finish = [appContext.importer finishImporting:&finishError];
+            NSLog(@"Finish: %d, Import error: %@", finish, finishError);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

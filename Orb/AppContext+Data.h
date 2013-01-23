@@ -33,4 +33,9 @@
 - (Channel*)loadChannelById:(NSInteger)channelId;
 - (Program*)loadProgramById:(NSInteger)programId;
 
+- (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum;
+- (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum byChannel:(Channel*)channel;
+- (void)deleteByDatenum:(NSString*)datenum;
+- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel;
+
 @end

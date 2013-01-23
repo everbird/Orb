@@ -189,6 +189,28 @@ NSString* const kAllChannels = @"kAllChannels";
     }];
 }
 
+- (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum
+{
+    return [self loadData:[Program class] FromLocalWithBlock:^(NSFetchRequest* request) {
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"datenum == %@", datenum];
+        [request setPredicate:predicate];
+        
+        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO];
+        [request setSortDescriptors:@[sort]];
+    }];
+}
+
+- (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum byChannel:(Channel*)channel
+{
+    return [self loadData:[Program class] FromLocalWithBlock:^(NSFetchRequest* request) {
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"datenum == %@ AND channelId == %@", datenum, channel.id];
+        [request setPredicate:predicate];
+        
+        NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO];
+        [request setSortDescriptors:@[sort]];
+    }];
+}
+
 - (NSArray*)loadData:(Class)class FromLocalWithBlock:(ZZFetchRequestBlock)block
 {
     const char * class_name = class_getName(class);
@@ -259,6 +281,26 @@ NSString* const kAllChannels = @"kAllChannels";
         };
         [[NSNotificationCenter defaultCenter] postNotificationName:N_RELOADED_DATA_REMOTE object:nil userInfo:userInfo];
     }
+}
+
+- (void)deleteByDatenum:(NSString*)datenum
+{
+    NSManagedObjectContext* c = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSArray* programs = [self loadAllProgramsByDatenum:datenum];
+    for (Program* p in programs) {
+        [c deleteObject:p];
+    }
+    [c save:nil];
+}
+
+- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel
+{
+    NSManagedObjectContext* c = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSArray* programs = [self loadAllProgramsByDatenum:datenum byChannel:channel];
+    for (Program* p in programs) {
+        [c deleteObject:p];
+    }
+    [c save:nil];
 }
 
 @end
