@@ -35,7 +35,7 @@
     [channelMapping addAttributeMappingsFromArray:@[@"id", @"name", @"priority"]];
     
     RKEntityMapping* programMapping = [RKEntityMapping mappingForEntityForName:@"Program" inManagedObjectStore:managedObjectStore];
-    programMapping.identificationAttributes = @[@"id"];
+    programMapping.identificationAttributes = @[@"pid"];
     [programMapping addAttributeMappingsFromArray:@[@"id", @"pid", @"name", @"length", @"datenum"]];
     [programMapping addAttributeMappingsFromDictionary:@{
          @"channel_id": @"channelId",
