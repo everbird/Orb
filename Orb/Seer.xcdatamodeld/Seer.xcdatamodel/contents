@@ -13,12 +13,13 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="channel" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="programs" inverseEntity="Channel" syncable="YES"/>
     </entity>
     <elements>
         <element name="Channel" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Program" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Program" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

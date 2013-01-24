@@ -2,8 +2,8 @@
 //  Program.m
 //  Orb
 //
-//  Created by everbird on 11/13/12.
-//  Copyright (c) 2012 everbird. All rights reserved.
+//  Created by everbird on 1/24/13.
+//  Copyright (c) 2013 everbird. All rights reserved.
 //
 
 #import "Program.h"
@@ -14,12 +14,13 @@
 
 @dynamic channelId;
 @dynamic datenum;
+@dynamic endDate;
 @dynamic id;
 @dynamic length;
 @dynamic name;
+@dynamic pid;
 @dynamic startDate;
 @dynamic updateDate;
-@dynamic endDate;
 @dynamic channel;
 
 @end

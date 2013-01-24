@@ -28,7 +28,6 @@
 		620BBB281657D98400AB3E36 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21B164FE4D4006119A9 /* ChannelsViewController.m */; };
 		620BBB291657D98400AB3E36 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6277C21F164FE567006119A9 /* ChannelCell.m */; };
 		620BBB2A1657D98400AB3E36 /* CurrentProgramsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 625F4B3616529371005B5A6A /* CurrentProgramsViewController.m */; };
-		620BBB2B1657D98400AB3E36 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		620BBB2D1657D98400AB3E36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		620BBB2E1657D98400AB3E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		620BBB2F1657D98400AB3E36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -62,7 +61,6 @@
 		6278721C1657E4EB00306128 /* ProgramsBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6278721A1657E4EB00306128 /* ProgramsBaseController.m */; };
 		62C2BF721699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
 		62C2BF731699CA8500AEF41C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 62C2BF711699CA8500AEF41C /* objects.json */; };
-		62C893EB1652A2BE0093017C /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C893EA1652A2BE0093017C /* Program.m */; };
 		62C8BD5516ADC17500601849 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
@@ -84,6 +82,8 @@
 		62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
 		62F373941640225C00E0F103 /* RevealRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F373931640225C00E0F103 /* RevealRootController.m */; };
 		62F3739B1640246100E0F103 /* SideBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F3739A1640246100E0F103 /* SideBarTableViewController.m */; };
+		62F59BF816B1571800F8EA9E /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F59BF716B1571800F8EA9E /* Program.m */; };
+		62F59BF916B1571800F8EA9E /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F59BF716B1571800F8EA9E /* Program.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,8 +122,6 @@
 		627872191657E4EB00306128 /* ProgramsBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramsBaseController.h; sourceTree = "<group>"; };
 		6278721A1657E4EB00306128 /* ProgramsBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramsBaseController.m; sourceTree = "<group>"; };
 		62C2BF711699CA8500AEF41C /* objects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
-		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +152,8 @@
 		62F373931640225C00E0F103 /* RevealRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealRootController.m; sourceTree = "<group>"; };
 		62F373991640246100E0F103 /* SideBarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideBarTableViewController.h; sourceTree = "<group>"; };
 		62F3739A1640246100E0F103 /* SideBarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideBarTableViewController.m; sourceTree = "<group>"; };
+		62F59BF616B1571800F8EA9E /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		62F59BF716B1571800F8EA9E /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		8007C75E20B64CC3BCEC0AC0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -309,8 +309,8 @@
 			children = (
 				62E6D04D1633045000106FBE /* Channel.h */,
 				62E6D04E1633045000106FBE /* Channel.m */,
-				62C893E91652A2BE0093017C /* Program.h */,
-				62C893EA1652A2BE0093017C /* Program.m */,
+				62F59BF616B1571800F8EA9E /* Program.h */,
+				62F59BF716B1571800F8EA9E /* Program.m */,
 			);
 			name = ManagedModel;
 			sourceTree = "<group>";
@@ -503,9 +503,9 @@
 				620BBB281657D98400AB3E36 /* ChannelsViewController.m in Sources */,
 				620BBB291657D98400AB3E36 /* ChannelCell.m in Sources */,
 				620BBB2A1657D98400AB3E36 /* CurrentProgramsViewController.m in Sources */,
-				620BBB2B1657D98400AB3E36 /* Program.m in Sources */,
 				6278721C1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
 				620EF5FB16AEF224005D9C66 /* DownloadManager.m in Sources */,
+				62F59BF916B1571800F8EA9E /* Program.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,9 +529,9 @@
 				6277C21C164FE4D4006119A9 /* ChannelsViewController.m in Sources */,
 				6277C220164FE567006119A9 /* ChannelCell.m in Sources */,
 				625F4B3716529371005B5A6A /* CurrentProgramsViewController.m in Sources */,
-				62C893EB1652A2BE0093017C /* Program.m in Sources */,
 				6278721B1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
 				620EF5FA16AEF224005D9C66 /* DownloadManager.m in Sources */,
+				62F59BF816B1571800F8EA9E /* Program.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
