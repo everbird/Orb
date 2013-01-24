@@ -68,12 +68,6 @@
 
 - (IBAction)booking:(id)sender
 {
-//    NSDate* now = [NSDate new];
-//    if (now > _program.startDate) {
-//        NSLog(@"已开播或播完");
-//        return;
-//    }
-
     NSLog(@"booking: %@", _program);
     UILocalNotification *notification=[[UILocalNotification alloc] init];
     if (notification!=nil) {
@@ -82,10 +76,10 @@
         [formatter setDateFormat:@"HH:mm"];
         [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
         NSString* dateString = [formatter stringFromDate:_program.startDate];
-//        notification.fireDate=_program.startDate;
         NSDate* now = [NSDate new];
-        notification.fireDate=[now dateByAddingTimeInterval:10];
-//        notification.timeZone=[NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+        NSTimeInterval ti = _program.startDate.timeIntervalSince1970 - now.timeIntervalSince1970;
+        NSLog(@"sec: %f", ti);
+        notification.fireDate=[now dateByAddingTimeInterval:ti];
         notification.timeZone = [NSTimeZone timeZoneWithAbbreviation:TIMEZONE];
         notification.alertBody=[NSString stringWithFormat:@"%@ %@ 即将开播: %@", [channel name], dateString, _program.name];
         notification.soundName=@"dingdang.caf";
