@@ -67,6 +67,10 @@ NSString* const kAllChannels = @"kAllChannels";
     [appContext.objectManager getObjectsAtPath:SEER_API_PROGRAMS
                                     parameters:@{@"q": query}
                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           NSDateFormatter* nf = [[NSDateFormatter alloc] init];
+                                           [nf setDateFormat:@"yyyyMMdd"];
+                                           NSString* datenum = [nf stringFromDate:today];
+                                           [self deleteByDatenum:datenum onlyExpired:YES];
                                            [self reloadAll];
                                        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                            NSLog(@"It Failed: %@", error);
@@ -87,6 +91,10 @@ NSString* const kAllChannels = @"kAllChannels";
     [appContext.syncObjectManager getObjectsAtPath:SEER_API_PROGRAMS
                                     parameters:@{@"q": query}
                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           NSDateFormatter* nf = [[NSDateFormatter alloc] init];
+                                           [nf setDateFormat:@"yyyyMMdd"];
+                                           NSString* datenum = [nf stringFromDate:today];
+                                           [self deleteByDatenum:datenum onlyExpired:YES];
                                            [self reloadAll];
                                        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                            NSLog(@"It Failed: %@", error);
@@ -117,6 +125,10 @@ NSString* const kAllChannels = @"kAllChannels";
     [objectManager getObjectsAtPath:SEER_API_PROGRAMS
                          parameters:@{@"q": query}
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                NSDateFormatter* nf = [[NSDateFormatter alloc] init];
+                                [nf setDateFormat:@"yyyyMMdd"];
+                                NSString* datenum = [nf stringFromDate:today];
+                                [self deleteByDatenum:datenum byChannel:channel onlyExpired:YES];
                                 [self reloadAll];
                             } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                 NSLog(@"It Failed: %@", error);
@@ -242,6 +254,9 @@ NSString* const kAllChannels = @"kAllChannels";
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"id == %d", objId];
     [request setPredicate:predicate];
     
+    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"id" ascending:NO];
+    [request setSortDescriptors:@[sort]];
+    
     NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                                                managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
                                                                                                  sectionNameKeyPath:nil
@@ -283,24 +298,39 @@ NSString* const kAllChannels = @"kAllChannels";
     }
 }
 
-- (void)deleteByDatenum:(NSString*)datenum
+- (void)deleteByDatenum:(NSString*)datenum onlyExpired:(BOOL)onlyExpired
 {
-    NSManagedObjectContext* c = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSManagedObjectContext* c = appContext.objectManager.managedObjectStore.mainQueueManagedObjectContext;
     NSArray* programs = [self loadAllProgramsByDatenum:datenum];
     for (Program* p in programs) {
-        [c deleteObject:p];
+        if (!onlyExpired || p.updateDate < [[NSDate date] dateAtStartOfDay]) {
+            [c deleteObject:p];
+        }
     }
     [c save:nil];
 }
 
-- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel
+- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel onlyExpired:(BOOL)onlyExpired
 {
-    NSManagedObjectContext* c = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSManagedObjectContext* c = appContext.objectManager.managedObjectStore.mainQueueManagedObjectContext;
     NSArray* programs = [self loadAllProgramsByDatenum:datenum byChannel:channel];
     for (Program* p in programs) {
-        [c deleteObject:p];
+        BOOL expired = [p.updateDate compare:[[NSDate date] dateAtStartOfDay]]==NSOrderedAscending;
+        BOOL shouldDelete = onlyExpired? expired:  YES;
+        if (shouldDelete) {
+            [c deleteObject:p];
+            NSLog(@"r: %d,%d delete: %@, %@, %@", expired, onlyExpired, p.name, p.updateDate, [[NSDate date] dateAtStartOfDay]);
+        } else {
+            NSLog(@">>> r: %d,%d delete: %@, %@, %@", expired, onlyExpired, p.name, p.updateDate, [[NSDate date] dateAtStartOfDay]);
+
+        }
     }
-    [c save:nil];
+    NSError* error = nil;
+    if (![c save:&error]) {
+        NSLog(@"error when save: %@", error);
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:nil];
+    }
 }
 
 @end

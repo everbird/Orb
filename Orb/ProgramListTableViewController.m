@@ -17,6 +17,8 @@
 #import "DetailViewController.h"
 #import "ProgramCell.h"
 
+
+
 @interface ProgramListTableViewController () <NSFetchedResultsControllerDelegate>
 
 @end
@@ -35,6 +37,8 @@
         @"即将播出",
         @"已播放完",
     ];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTable) name:@"refreshTable" object:nil];
 }
 
 - (void)viewDidUnload
@@ -42,6 +46,7 @@
     [super viewDidUnload];
     
     _channel = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
 }
 
 - (void)fetchProgramsData
@@ -113,6 +118,7 @@
         programs = _programs;
     }
     Program* program = [self getProgramFrom:programs ByIndexPath:indexPath];
+    NSLog(@"show: %@", program.name);
     return [self makeCell:program ForTable:tableView];
 }
 
@@ -128,6 +134,11 @@
 #pragma mark NSFetchedResultsControllerDelegate methods
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
+}
+
+- (void)refreshTable
 {
     [self.tableView reloadData];
 }

@@ -175,6 +175,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DXH-5W-PVy" userLabel="Start Date Label">
+                                <rect key="frame" x="79" y="194" width="221" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FEy-mb-faL">
                                 <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -197,6 +204,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="更新：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ken-dW-ygq">
+                                <rect key="frame" x="20" y="194" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -208,6 +222,7 @@
                         <outlet property="lengthLabel" destination="Hau-Wl-0KD" id="69j-LB-Z9u"/>
                         <outlet property="startDateLabel" destination="zKH-5J-k4n" id="Mad-MW-yvm"/>
                         <outlet property="tmpLabel" destination="avP-mg-Twn" id="c4F-8I-q3a"/>
+                        <outlet property="updateDateLabel" destination="DXH-5W-PVy" id="n1N-7H-DuY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXd-Kn-0UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -391,59 +406,6 @@
             <point key="canvasLocation" x="215" y="155"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ChannelCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChannelCell.h"/>
-        </class>
-        <class className="ChannelsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChannelsViewController.h"/>
-        </class>
-        <class className="CurrentProgramsViewController" superclassName="ProgramsBaseController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentProgramsViewController.h"/>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="booking:"/>
-                <relationship kind="outlet" name="booking" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="channelLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lengthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tmpLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="JASidePanelController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
-        </class>
-        <class className="MenuCategoryCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuCategoryCell.h"/>
-        </class>
-        <class className="ProgramCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramCell.h"/>
-        </class>
-        <class className="ProgramListTableViewController" superclassName="ProgramsBaseController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramListTableViewController.h"/>
-        </class>
-        <class className="ProgramsBaseController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProgramsBaseController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tv" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RevealRootController" superclassName="JASidePanelController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RevealRootController.h"/>
-        </class>
-        <class className="SideBarTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SideBarTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="currentSizeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="totalSizeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

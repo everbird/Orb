@@ -35,7 +35,7 @@
 
 - (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum;
 - (NSArray*)loadAllProgramsByDatenum:(NSString*)datenum byChannel:(Channel*)channel;
-- (void)deleteByDatenum:(NSString*)datenum;
-- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel;
+- (void)deleteByDatenum:(NSString*)datenum onlyExpired:(BOOL)onlyExpired;
+- (void)deleteByDatenum:(NSString*)datenum byChannel:(Channel*)channel onlyExpired:(BOOL)onlyExpired;
 
 @end

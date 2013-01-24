@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *channelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updateDateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *booking;
 
 - (IBAction)booking:(id)sender;

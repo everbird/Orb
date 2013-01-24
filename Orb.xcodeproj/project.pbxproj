@@ -121,8 +121,6 @@
 		627872151657DCF900306128 /* Dev-Dev.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Dev.xcconfig"; sourceTree = "<group>"; };
 		627872191657E4EB00306128 /* ProgramsBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramsBaseController.h; sourceTree = "<group>"; };
 		6278721A1657E4EB00306128 /* ProgramsBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramsBaseController.m; sourceTree = "<group>"; };
-		629A03BD169706040019435F /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
-		629A03BE169706040019435F /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		62C2BF711699CA8500AEF41C /* objects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
 		62C893E91652A2BE0093017C /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		62C893EA1652A2BE0093017C /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
@@ -302,8 +300,6 @@
 				62E6D01C1632E94400106FBE /* dingdang.caf */,
 				62E6D0001632E4B100106FBE /* MainStoryboard.storyboard */,
 				62E6D0471632F99F00106FBE /* Seer.xcdatamodeld */,
-				629A03BD169706040019435F /* Channel.h */,
-				629A03BE169706040019435F /* Channel.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

@@ -38,9 +38,6 @@
         [targetData writeToFile:dest atomically:YES];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:dest]) {
-            //Clean data first
-            [appContext deleteByDatenum:datenumber];
-            
             // Start import data
             NSError* importerError;
             [appContext.importer importObjectsFromItemAtPath:dest
@@ -50,6 +47,8 @@
             NSError* finishError;
             BOOL finish = [appContext.importer finishImporting:&finishError];
             NSLog(@"Finish: %d, Import error: %@", finish, finishError);
+            
+//            [appContext deleteByDatenum:datenumber onlyExpired:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

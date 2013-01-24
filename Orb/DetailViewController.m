@@ -37,6 +37,7 @@
     [self setStartDateLabel:nil];
     [self setBooking:nil];
     [self setEndDateLabel:nil];
+    [self setUpdateDateLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -59,8 +60,10 @@
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
     NSString* startDateString = [formatter stringFromDate:_program.startDate];
     NSString* endDateString = [formatter stringFromDate:_program.endDate];
+    NSString* updateDateString = [formatter stringFromDate:_program.updateDate];
     _startDateLabel.text = startDateString;
     _endDateLabel.text = endDateString;
+    _updateDateLabel.text = updateDateString;
 }
 
 - (IBAction)booking:(id)sender
