@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4F8B81999BBB4B398094C157 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD1EE3010324CA8944DAB82 /* libPods.a */; };
+		620370B716B3A94F0057DAB3 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370B616B3A94F0057DAB3 /* ChartViewController.m */; };
+		620370B816B3A94F0057DAB3 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370B616B3A94F0057DAB3 /* ChartViewController.m */; };
+		620370BC16B3C72D0057DAB3 /* ChartProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370BB16B3C72D0057DAB3 /* ChartProgram.m */; };
+		620370BD16B3C72D0057DAB3 /* ChartProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370BB16B3C72D0057DAB3 /* ChartProgram.m */; };
 		620BBAB41657D09B00AB3E36 /* Share.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBAB31657D09B00AB3E36 /* Share.xcconfig */; };
 		620BBB131657D49300AB3E36 /* Dev-Product.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */; };
 		620BBB151657D90E00AB3E36 /* Dev-LocalDev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */; };
@@ -88,6 +92,10 @@
 
 /* Begin PBXFileReference section */
 		2FD1EE3010324CA8944DAB82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		620370B516B3A94F0057DAB3 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		620370B616B3A94F0057DAB3 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
+		620370BA16B3C72D0057DAB3 /* ChartProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartProgram.h; sourceTree = "<group>"; };
+		620370BB16B3C72D0057DAB3 /* ChartProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartProgram.m; sourceTree = "<group>"; };
 		620BBAB31657D09B00AB3E36 /* Share.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Share.xcconfig; sourceTree = "<group>"; };
 		620BBB111657D36200AB3E36 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Product.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +192,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		620370B916B3C7080057DAB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				620370BA16B3C72D0057DAB3 /* ChartProgram.h */,
+				620370BB16B3C72D0057DAB3 /* ChartProgram.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		620BBAB11657D07E00AB3E36 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +243,8 @@
 				625C7E7B163442A500665982 /* DetailViewController.m */,
 				627872191657E4EB00306128 /* ProgramsBaseController.h */,
 				6278721A1657E4EB00306128 /* ProgramsBaseController.m */,
+				620370B516B3A94F0057DAB3 /* ChartViewController.h */,
+				620370B616B3A94F0057DAB3 /* ChartViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +283,7 @@
 		62E6CFF41632E4B100106FBE /* Orb */ = {
 			isa = PBXGroup;
 			children = (
+				620370B916B3C7080057DAB3 /* Model */,
 				620BBAB11657D07E00AB3E36 /* Config */,
 				6277C21D164FE544006119A9 /* View */,
 				627872181657E47700306128 /* Controller */,
@@ -506,6 +526,8 @@
 				6278721C1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
 				620EF5FB16AEF224005D9C66 /* DownloadManager.m in Sources */,
 				62F59BF916B1571800F8EA9E /* Program.m in Sources */,
+				620370B816B3A94F0057DAB3 /* ChartViewController.m in Sources */,
+				620370BD16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +554,8 @@
 				6278721B1657E4EB00306128 /* ProgramsBaseController.m in Sources */,
 				620EF5FA16AEF224005D9C66 /* DownloadManager.m in Sources */,
 				62F59BF816B1571800F8EA9E /* Program.m in Sources */,
+				620370B716B3A94F0057DAB3 /* ChartViewController.m in Sources */,
+				620370BC16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

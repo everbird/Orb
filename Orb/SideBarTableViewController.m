@@ -47,6 +47,7 @@
         @"current",
         @"channels",
         @"sync",
+        @"chart",
     ];
 }
 
