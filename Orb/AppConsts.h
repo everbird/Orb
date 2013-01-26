@@ -17,4 +17,6 @@
 #define DATE_FORMAT @"yyyy-MM-dd HH:mm"
 #define TIMEZONE    @"UTC+8"
 
+#define SEER_API_CHART          @"/api/chart"
+
 #endif

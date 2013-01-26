@@ -19,5 +19,10 @@
 @property (nonatomic, copy) NSDate* startDt;
 @property (nonatomic, copy) NSDate* endDt;
 @property (nonatomic, copy) NSDate* updateDt;
+@property (nonatomic, copy) NSString* startDtString;
+@property (nonatomic, copy) NSString* endDtString;
+@property (nonatomic, copy) NSString* updateDtString;
+
++ (ChartProgram*)parseFromDictionary:(NSDictionary*)dictionary;
 
 @end

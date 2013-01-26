@@ -271,6 +271,33 @@ NSString* const kAllChannels = @"kAllChannels";
     return [result objectAtIndex:0];
 }
 
+- (id)loadObject:(Class)class ByPid:(NSString*)pid
+{
+    const char * class_name = class_getName(class);
+    NSString* className = [NSString stringWithCString:class_name encoding:NSUTF8StringEncoding];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:className];
+    request.fetchLimit = 1;
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"pid == %@", pid];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey:@"pid" ascending:NO];
+    [request setSortDescriptors:@[sort]];
+    
+    NSFetchedResultsController* fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                               managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                                                 sectionNameKeyPath:nil
+                                                                                                          cacheName:nil];
+    NSError *error = nil;
+    BOOL fetchSuccessful = [fetchedResultsController performFetch:&error];
+    
+    NSArray* result = fetchedResultsController.fetchedObjects;
+    if (!fetchSuccessful || [result count]==0) {
+        return nil;
+    }
+    return [result objectAtIndex:0];
+}
+
 - (Channel*)loadChannelById:(NSInteger)channelId
 {
     return [self loadObject:[Channel class] ById:channelId];

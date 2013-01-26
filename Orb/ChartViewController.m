@@ -8,6 +8,14 @@
 
 #import "ChartViewController.h"
 
+#import <AFNetworking/AFNetworking.h>
+
+#import "AppCommon.h"
+#import "ChartProgram.h"
+#import "ChartProgramCell.h"
+#import "DetailViewController.h"
+
+
 @interface ChartViewController ()
 
 @end
@@ -18,11 +26,25 @@
 {
     [super viewDidLoad];
 
+    NSString* urlString = [SEER_API_BASE_URL stringByAppendingString:SEER_API_CHART];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSDictionary* r = JSON;
+        _top250Programs = [r objectForKey:@"top250"];
+        _highRatingPrograms = [r objectForKey:@"rating"];
+        _sections = @[_top250Programs, _highRatingPrograms];
+        [self.tableView reloadData];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        //
+        NSLog(@"error: %@", error);
+    }];
     
-    _top250Programs = @[@"123", @"456"];
-    _highRatingPrograms = @[@"apple", @"orange"];
-    _sections = @[_top250Programs, _highRatingPrograms];
-    _sectionTitles = @[@"A", @"B"];
+    [operation start];
+    
+    _top250Programs = nil;
+    _highRatingPrograms = nil;
+    _sections = nil;
+    _sectionTitles = @[@"top250", @"rating"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,12 +72,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChartCell" forIndexPath:indexPath];
+    ChartProgramCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChartCell" forIndexPath:indexPath];
     
     NSArray* programs = [_sections objectAtIndex:indexPath.section];
-    NSString* tmp = [programs objectAtIndex:indexPath.row];
-    cell.textLabel.text = tmp;
+    NSDictionary* chartProgramInfo = [programs objectAtIndex:indexPath.row];
+    ChartProgram* cp = [ChartProgram parseFromDictionary:chartProgramInfo];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:DATE_FORMAT];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:TIMEZONE]];
+    NSString* dateString = [formatter stringFromDate:cp.startDt];
+    cell.textLabel.text = cp.name;
+    cell.detailTextLabel.text = dateString;
+    cell.chartProgram = cp;
     return cell;
 }
 
@@ -63,6 +92,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ChartProgramCell* cell = (ChartProgramCell*)sender;
+    DetailViewController* destination = [segue destinationViewController];
+    ChartProgram* cp = cell.chartProgram;
+    Program* p = [appContext loadObject:[Program class] ByPid:cp.pid];
+//    Program* p = [appContext loadObject:[Program class] ById:[cp.id intValue]];
+    destination.program = p;
 }
 
 @end

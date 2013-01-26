@@ -30,6 +30,7 @@
 - (void)fetchProgramsFromRemoteByDate:(NSDate*)date;
 
 - (id)loadObject:(Class)class ById:(NSInteger)objId;
+- (id)loadObject:(Class)class ByPid:(NSString*)pid;
 - (Channel*)loadChannelById:(NSInteger)channelId;
 - (Program*)loadProgramById:(NSInteger)programId;
 

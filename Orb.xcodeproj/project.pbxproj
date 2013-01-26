@@ -82,6 +82,8 @@
 		62E6D0591633D9E000106FBE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0531633D9E000106FBE /* Default@2x.png */; };
 		62E6D05A1633D9E000106FBE /* listbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0541633D9E000106FBE /* listbg.png */; };
 		62E6D05B1633D9E000106FBE /* listbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 62E6D0551633D9E000106FBE /* listbg@2x.png */; };
+		62EA646D16B41F7200C7A75D /* ChartProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EA646C16B41F7200C7A75D /* ChartProgramCell.m */; };
+		62EA646E16B41F7200C7A75D /* ChartProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EA646C16B41F7200C7A75D /* ChartProgramCell.m */; };
 		62EB60E1164944EC005EA3C0 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EB60E0164944EC005EA3C0 /* AppContext.m */; };
 		62EE279D1634321B00D66F18 /* ProgramListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */; };
 		62F373941640225C00E0F103 /* RevealRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F373931640225C00E0F103 /* RevealRootController.m */; };
@@ -153,6 +155,8 @@
 		62E6D0531633D9E000106FBE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		62E6D0541633D9E000106FBE /* listbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listbg.png; sourceTree = "<group>"; };
 		62E6D0551633D9E000106FBE /* listbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listbg@2x.png"; sourceTree = "<group>"; };
+		62EA646B16B41F7200C7A75D /* ChartProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartProgramCell.h; sourceTree = "<group>"; };
+		62EA646C16B41F7200C7A75D /* ChartProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartProgramCell.m; sourceTree = "<group>"; };
 		62EB60DF164944EC005EA3C0 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContext.h; sourceTree = "<group>"; };
 		62EB60E0164944EC005EA3C0 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContext.m; sourceTree = "<group>"; };
 		62EE279C1634321B00D66F18 /* ProgramListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramListTableViewController.m; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				625340921638285000B53A58 /* ProgramCell.m */,
 				6277C21E164FE567006119A9 /* ChannelCell.h */,
 				6277C21F164FE567006119A9 /* ChannelCell.m */,
+				62EA646B16B41F7200C7A75D /* ChartProgramCell.h */,
+				62EA646C16B41F7200C7A75D /* ChartProgramCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				62F59BF916B1571800F8EA9E /* Program.m in Sources */,
 				620370B816B3A94F0057DAB3 /* ChartViewController.m in Sources */,
 				620370BD16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
+				62EA646E16B41F7200C7A75D /* ChartProgramCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +563,7 @@
 				62F59BF816B1571800F8EA9E /* Program.m in Sources */,
 				620370B716B3A94F0057DAB3 /* ChartViewController.m in Sources */,
 				620370BC16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
+				62EA646D16B41F7200C7A75D /* ChartProgramCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
