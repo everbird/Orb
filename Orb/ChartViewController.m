@@ -72,7 +72,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChartProgramCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChartCell" forIndexPath:indexPath];
+    ChartProgramCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChartCell"];
     
     NSArray* programs = [_sections objectAtIndex:indexPath.section];
     NSDictionary* chartProgramInfo = [programs objectAtIndex:indexPath.row];
