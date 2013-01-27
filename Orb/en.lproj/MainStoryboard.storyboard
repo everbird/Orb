@@ -377,6 +377,50 @@
             </objects>
             <point key="canvasLocation" x="215" y="787"/>
         </scene>
+        <!--Wish View Controller - Root View Controller-->
+        <scene sceneID="3v4-uJ-sxb">
+            <objects>
+                <tableViewController id="iCT-OJ-Sbo" customClass="WishViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S9u-fq-Xr3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bBn-zg-0h2">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="BDD-Cu-zE6" kind="push" id="kag-yU-X4E"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="mIZ-dh-gjO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffj-B4-zGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="1423"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iz6-uC-NSB">
+            <objects>
+                <navigationController storyboardIdentifier="wish" definesPresentationContext="YES" id="QX1-0f-H4B" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3vu-xF-5Yf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iCT-OJ-Sbo" kind="relationship" relationship="rootViewController" id="lgX-VM-7Bv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDc-Wq-BiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-609" y="1423"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MVL-mb-1od">
             <objects>
@@ -524,6 +568,9 @@
                 <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
             </relationships>
         </class>
+        <class className="WishViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WishViewController.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -531,6 +578,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dek-k9-daW"/>
+        <segue reference="kag-yU-X4E"/>
     </inferredMetricsTieBreakers>
 </document>
