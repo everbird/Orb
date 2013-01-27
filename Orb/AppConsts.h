@@ -19,4 +19,6 @@
 
 #define SEER_API_CHART          @"/api/chart"
 
+#define DOU_API_AUTH            @"https://www.douban.com/service/auth2/auth"
+
 #endif

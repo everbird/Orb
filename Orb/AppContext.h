@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DBCredential.h"
+
 #define appContext ((AppContext *)[AppContext sharedContext])
 
 @interface AppContext : NSObject
 
 @property (nonatomic, weak) UINavigationController* rootVC;
+
+@property (nonatomic, readonly) DBCredential* credential;
 
 + (id)sharedContext;
 

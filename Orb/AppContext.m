@@ -22,4 +22,13 @@
     return sharedContext;
 }
 
+- (id)init
+{
+    if ((self = [super init])) {
+        _credential = [[DBCredential alloc] init];
+        [_credential reload];
+    }
+    return self;
+}
+
 @end

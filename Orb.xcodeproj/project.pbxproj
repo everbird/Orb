@@ -12,6 +12,12 @@
 		620370B816B3A94F0057DAB3 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370B616B3A94F0057DAB3 /* ChartViewController.m */; };
 		620370BC16B3C72D0057DAB3 /* ChartProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370BB16B3C72D0057DAB3 /* ChartProgram.m */; };
 		620370BD16B3C72D0057DAB3 /* ChartProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 620370BB16B3C72D0057DAB3 /* ChartProgram.m */; };
+		6204F4C016B574E800DDA217 /* AppContext+Authorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */; };
+		6204F4C116B574E800DDA217 /* AppContext+Authorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */; };
+		6204F4C516B576BB00DDA217 /* DBCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4C416B576BB00DDA217 /* DBCredential.m */; };
+		6204F4C616B576BB00DDA217 /* DBCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4C416B576BB00DDA217 /* DBCredential.m */; };
+		6204F4CA16B579B800DDA217 /* NSDictionary+Orb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4C916B579B800DDA217 /* NSDictionary+Orb.m */; };
+		6204F4CB16B579B800DDA217 /* NSDictionary+Orb.m in Sources */ = {isa = PBXBuildFile; fileRef = 6204F4C916B579B800DDA217 /* NSDictionary+Orb.m */; };
 		620BBAB41657D09B00AB3E36 /* Share.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBAB31657D09B00AB3E36 /* Share.xcconfig */; };
 		620BBB131657D49300AB3E36 /* Dev-Product.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */; };
 		620BBB151657D90E00AB3E36 /* Dev-LocalDev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 620BBB141657D90E00AB3E36 /* Dev-LocalDev.xcconfig */; };
@@ -68,6 +74,8 @@
 		62C8BD5516ADC17500601849 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */; };
 		62E6345C16B546BB0092FD65 /* WishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6345B16B546BB0092FD65 /* WishViewController.m */; };
 		62E6345D16B546BB0092FD65 /* WishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6345B16B546BB0092FD65 /* WishViewController.m */; };
+		62E6346916B567980092FD65 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6346816B567980092FD65 /* LoginViewController.m */; };
+		62E6346A16B567980092FD65 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6346816B567980092FD65 /* LoginViewController.m */; };
 		62E6CFEF1632E4B100106FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFEE1632E4B100106FBE /* UIKit.framework */; };
 		62E6CFF11632E4B100106FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF01632E4B100106FBE /* Foundation.framework */; };
 		62E6CFF31632E4B100106FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E6CFF21632E4B100106FBE /* CoreGraphics.framework */; };
@@ -100,6 +108,12 @@
 		620370B616B3A94F0057DAB3 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		620370BA16B3C72D0057DAB3 /* ChartProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartProgram.h; sourceTree = "<group>"; };
 		620370BB16B3C72D0057DAB3 /* ChartProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartProgram.m; sourceTree = "<group>"; };
+		6204F4BE16B574E800DDA217 /* AppContext+Authorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppContext+Authorize.h"; sourceTree = "<group>"; };
+		6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppContext+Authorize.m"; sourceTree = "<group>"; };
+		6204F4C316B576BB00DDA217 /* DBCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCredential.h; sourceTree = "<group>"; };
+		6204F4C416B576BB00DDA217 /* DBCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCredential.m; sourceTree = "<group>"; };
+		6204F4C816B579B800DDA217 /* NSDictionary+Orb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Orb.h"; sourceTree = "<group>"; };
+		6204F4C916B579B800DDA217 /* NSDictionary+Orb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Orb.m"; sourceTree = "<group>"; };
 		620BBAB31657D09B00AB3E36 /* Share.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Share.xcconfig; sourceTree = "<group>"; };
 		620BBB111657D36200AB3E36 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		620BBB121657D49300AB3E36 /* Dev-Product.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Dev-Product.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +151,8 @@
 		62C8BD5416ADC17500601849 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		62E6345A16B546BB0092FD65 /* WishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishViewController.h; sourceTree = "<group>"; };
 		62E6345B16B546BB0092FD65 /* WishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishViewController.m; sourceTree = "<group>"; };
+		62E6346716B567980092FD65 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		62E6346816B567980092FD65 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		62E6CFEA1632E4B100106FBE /* Orb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E6CFEE1632E4B100106FBE /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		62E6CFF01632E4B100106FBE /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -203,10 +219,21 @@
 		620370B916B3C7080057DAB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6204F4C316B576BB00DDA217 /* DBCredential.h */,
+				6204F4C416B576BB00DDA217 /* DBCredential.m */,
 				620370BA16B3C72D0057DAB3 /* ChartProgram.h */,
 				620370BB16B3C72D0057DAB3 /* ChartProgram.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6204F4C716B5797000DDA217 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6204F4C816B579B800DDA217 /* NSDictionary+Orb.h */,
+				6204F4C916B579B800DDA217 /* NSDictionary+Orb.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		620BBAB11657D07E00AB3E36 /* Config */ = {
@@ -257,6 +284,8 @@
 				620370B616B3A94F0057DAB3 /* ChartViewController.m */,
 				62E6345A16B546BB0092FD65 /* WishViewController.h */,
 				62E6345B16B546BB0092FD65 /* WishViewController.m */,
+				62E6346716B567980092FD65 /* LoginViewController.h */,
+				62E6346816B567980092FD65 /* LoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -295,6 +324,7 @@
 		62E6CFF41632E4B100106FBE /* Orb */ = {
 			isa = PBXGroup;
 			children = (
+				6204F4C716B5797000DDA217 /* Common */,
 				620370B916B3C7080057DAB3 /* Model */,
 				620BBAB11657D07E00AB3E36 /* Config */,
 				6277C21D164FE544006119A9 /* View */,
@@ -366,6 +396,8 @@
 				627872141657DCAD00306128 /* LocalConfig.h */,
 				620EF5F816AEF223005D9C66 /* DownloadManager.h */,
 				620EF5F916AEF223005D9C66 /* DownloadManager.m */,
+				6204F4BE16B574E800DDA217 /* AppContext+Authorize.h */,
+				6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -542,6 +574,10 @@
 				620370BD16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
 				62EA646E16B41F7200C7A75D /* ChartProgramCell.m in Sources */,
 				62E6345D16B546BB0092FD65 /* WishViewController.m in Sources */,
+				62E6346A16B567980092FD65 /* LoginViewController.m in Sources */,
+				6204F4C116B574E800DDA217 /* AppContext+Authorize.m in Sources */,
+				6204F4C616B576BB00DDA217 /* DBCredential.m in Sources */,
+				6204F4CB16B579B800DDA217 /* NSDictionary+Orb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +608,10 @@
 				620370BC16B3C72D0057DAB3 /* ChartProgram.m in Sources */,
 				62EA646D16B41F7200C7A75D /* ChartProgramCell.m in Sources */,
 				62E6345C16B546BB0092FD65 /* WishViewController.m in Sources */,
+				62E6346916B567980092FD65 /* LoginViewController.m in Sources */,
+				6204F4C016B574E800DDA217 /* AppContext+Authorize.m in Sources */,
+				6204F4C516B576BB00DDA217 /* DBCredential.m in Sources */,
+				6204F4CA16B579B800DDA217 /* NSDictionary+Orb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

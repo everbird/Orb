@@ -13,6 +13,7 @@
 
 #import "RevealRootController.h"
 #import "DownloadManager.h"
+#import "LoginViewController.h"
 
 @interface SideBarTableViewController ()
 
@@ -110,6 +111,16 @@
                 NSLog(@"Operation%i: totalBytesExpectedToReadForFile: %lld", 1, totalBytesExpectedToReadForFile);
             }];
         }
+        
+        return;
+    }
+    
+    DBCredential* credential = appContext.credential;
+    
+    if (!credential.isValid && [category isEqualToString:@"wish"]) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        LoginViewController* loginVC = [storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self presentModalViewController:loginVC animated:YES];
         
         return;
     }
