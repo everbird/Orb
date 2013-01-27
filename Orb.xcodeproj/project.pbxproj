@@ -388,6 +388,8 @@
 				621AEFB1164D419400F70FC2 /* AppContext+Data.m */,
 				621AEFB4164D425400F70FC2 /* AppContext+RestKit.h */,
 				621AEFB5164D425400F70FC2 /* AppContext+RestKit.m */,
+				6204F4BE16B574E800DDA217 /* AppContext+Authorize.h */,
+				6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */,
 				621AEFB7164D42EC00F70FC2 /* AppConsts.h */,
 				621AEFB8164D433000F70FC2 /* AppCommon.h */,
 				621AEFC0164E063B00F70FC2 /* AppDefines.h */,
@@ -396,8 +398,6 @@
 				627872141657DCAD00306128 /* LocalConfig.h */,
 				620EF5F816AEF223005D9C66 /* DownloadManager.h */,
 				620EF5F916AEF223005D9C66 /* DownloadManager.m */,
-				6204F4BE16B574E800DDA217 /* AppContext+Authorize.h */,
-				6204F4BF16B574E800DDA217 /* AppContext+Authorize.m */,
 			);
 			name = App;
 			sourceTree = "<group>";

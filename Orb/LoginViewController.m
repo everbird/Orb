@@ -46,6 +46,21 @@
     [appContext loginWithUsername:email
                          password:password
     success:^(){
+        appContext.client.parameterEncoding = AFJSONParameterEncoding;
+        
+        NSDictionary* data = @{
+            @"douban_id": appContext.credential.userId,
+            @"name": @"<testting>",
+            @"access_token": appContext.credential.accessToken,
+        };
+        [appContext.client postPath:SEER_API_USER
+                         parameters:data
+                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            //
+        }];
+        
         [self dismissViewControllerAnimated:YES completion:^{
             NSLog(@">>> dismiss: %@", self);
         }];

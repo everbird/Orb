@@ -12,6 +12,7 @@
 #define SEER_API_PROGRAMS       @"/api/program"
 #define SEER_API_CHANNELS       @"/api/channel"
 #define SEER_API_PROGRAM        @"/api/channel/:id"
+#define SEER_API_USER           @"/api/user"
 #define SEER_API_DATE_FORMATE   @"yyyy-MM-dd'T'HH:mm:ss'Z'"
 
 #define DATE_FORMAT @"yyyy-MM-dd HH:mm"
