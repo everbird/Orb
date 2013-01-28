@@ -21,5 +21,6 @@
 #define SEER_API_CHART          @"/api/chart"
 
 #define DOU_API_AUTH            @"https://www.douban.com/service/auth2/auth"
+#define DEVICE_TOKEN            @"device_token"
 
 #endif
