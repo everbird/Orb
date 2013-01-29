@@ -48,6 +48,7 @@
     success:^(){
         appContext.client.parameterEncoding = AFJSONParameterEncoding;
         NSString* deviceToken = [[NSUserDefaults standardUserDefaults] valueForKey:DEVICE_TOKEN];
+        deviceToken = deviceToken!=nil? deviceToken: @"<test token>";
         
         NSDictionary* queryData = @{
             @"filters": @[
@@ -75,7 +76,7 @@
                                    if (!isTokenExist) {
                                        NSDictionary* deviceData = @{
                                            @"douban_id": appContext.credential.userId,
-                                           @"device_token": deviceToken!=nil? deviceToken: @"<test token>",
+                                           @"device_token": deviceToken,
                                            @"user_id": [userInfo objectForKey:@"id"],
                                        };
                                        [appContext.client postPath:SEER_API_USER_DEVICE parameters:deviceData success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -94,7 +95,7 @@
                                         @"devices": @[
                                             @{
                                                 @"douban_id": appContext.credential.userId,
-                                                @"device_token": deviceToken!=nil? deviceToken: @"<test token>",
+                                                @"device_token": deviceToken,
                                             },
                                         ],
                                     };

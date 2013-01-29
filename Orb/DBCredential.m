@@ -29,7 +29,7 @@ static NSString* const kDBCredentialAuthorizeDateKey = @"authorize_date";
 
 - (BOOL)isValid
 {
-    return NO && _accessToken && _refreshToken;
+    return _accessToken && _refreshToken;
 }
 
 - (BOOL)isExpired
